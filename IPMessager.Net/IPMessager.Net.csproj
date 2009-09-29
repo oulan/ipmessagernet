@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ConfigPanelBase.cs">
-      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="API\IPluginUI.cs" />
     <Compile Include="API\PluginBase.cs" />
@@ -186,7 +185,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UI\Base\DialogBase.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Comp\NotifyIconManager.cs" />
     <Compile Include="UI\Controls\ChatArea.cs">
@@ -247,13 +245,11 @@
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\Config\UserGroupListEditor.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Config\UserGroupListEditor.Designer.cs">
       <DependentUpon>UserGroupListEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\ModifyHostGroupAndMemo.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\ModifyHostGroupAndMemo.Designer.cs">
       <DependentUpon>ModifyHostGroupAndMemo.cs</DependentUpon>
@@ -277,16 +273,13 @@
       <DependentUpon>SendTaskRelease.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\InitializeError.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\InitializeError.Designer.cs">
       <DependentUpon>InitializeError.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Base\FormBase.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\AboutIPM.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\AboutIPM.Designer.cs">
       <DependentUpon>AboutIPM.cs</DependentUpon>
@@ -307,7 +300,6 @@
       <DependentUpon>ChatView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\FrameContainer.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\FrameContainer.Designer.cs">
       <DependentUpon>FrameContainer.cs</DependentUpon>
@@ -320,13 +312,11 @@
     </Compile>
     <Compile Include="UI\Forms\FrameContainerConfig.cs" />
     <Compile Include="UI\Forms\ControlContainer.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\ControlContainer.Designer.cs">
       <DependentUpon>ControlContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\SysConfig.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\SysConfig.Designer.cs">
       <DependentUpon>SysConfig.cs</DependentUpon>
@@ -340,15 +330,15 @@
     <Compile Include="Utility\HostSortComarer_Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\_公用类库_\FSLib.Drawing\FSLib.Drawing.csproj">
+    <ProjectReference Include="..\..\..\..\_公用类库_\FSLib.Drawing\FSLib.Drawing.csproj">
       <Project>{24CF8AA8-D177-42DC-BABC-9B404131B5F9}</Project>
       <Name>FSLib.Drawing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\_公用类库_\FSLib.Windows\FSLib.Windows.csproj">
+    <ProjectReference Include="..\..\..\..\_公用类库_\FSLib.Windows\FSLib.Windows.csproj">
       <Project>{3BF83FF3-C0B7-40D8-B95F-9379AE506D49}</Project>
       <Name>FSLib.Windows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FSLib.IPMessager\FSLib.IPMessager.csproj">
+    <ProjectReference Include="..\..\FSLib.IPMessager\FSLib.IPMessager.csproj">
       <Project>{E86FEBC4-2100-44BB-8703-78DB3845E726}</Project>
       <Name>FSLib.IPMessager</Name>
     </ProjectReference>
