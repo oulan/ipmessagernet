@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API\ConfigPanelBase.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="API\IPluginUI.cs" />
     <Compile Include="API\PluginBase.cs" />
@@ -70,6 +71,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\AdvanceConfigPanel.resx">
       <DependentUpon>AdvanceConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Config\FileConfigPanel.resx">
+      <DependentUpon>FileConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\GeneralConfigPanel.resx">
       <DependentUpon>GeneralConfigPanel.cs</DependentUpon>
@@ -141,26 +145,49 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <Compile Include="UI\Controls\Config\AdvanceConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\AdvanceConfigPanel.Designer.cs">
       <DependentUpon>AdvanceConfigPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\Config\AutoUpdaePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\AutoUpdaePanel.Designer.cs">
+      <DependentUpon>AutoUpdaePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Config\FileConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\FileConfigPanel.Designer.cs">
+      <DependentUpon>FileConfigPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\Config\HostConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\HostConfigPanel.Designer.cs">
       <DependentUpon>HostConfigPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\Config\NetworkConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\NetworkConfigPanel.Designer.cs">
       <DependentUpon>NetworkConfigPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\Config\NotifyConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\NotifyConfigPanel.Designer.cs">
+      <DependentUpon>NotifyConfigPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\Config\PluginsConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\PluginsConfigPanel.Designer.cs">
       <DependentUpon>PluginsConfigPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\Config\SecurityConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\SecurityConfigPanel.Designer.cs">
       <DependentUpon>SecurityConfigPanel.cs</DependentUpon>
@@ -168,6 +195,7 @@
     <Compile Include="UI\Controls\Config\StateConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\AutoUpdateConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\StateConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\StateConfigPanel.Designer.cs">
       <DependentUpon>StateConfigPanel.cs</DependentUpon>
@@ -185,6 +213,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UI\Base\DialogBase.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Comp\NotifyIconManager.cs" />
     <Compile Include="UI\Controls\ChatArea.cs">
@@ -206,6 +235,7 @@
     </Compile>
     <Compile Include="UI\Controls\Config\GeneralConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\GeneralConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\GeneralConfigPanel.Designer.cs">
       <DependentUpon>GeneralConfigPanel.cs</DependentUpon>
@@ -214,6 +244,7 @@
     <Compile Include="UI\Controls\Config\HostConfigMenuItem.cs" />
     <Compile Include="API\IEditorService.cs" />
     <Compile Include="UI\Controls\Config\TestingConfigPanel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\Controls\Config\TestingConfigPanel.Designer.cs">
       <DependentUpon>TestingConfigPanel.cs</DependentUpon>
@@ -245,11 +276,13 @@
       <DependentUpon>TextEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\Config\UserGroupListEditor.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Config\UserGroupListEditor.Designer.cs">
       <DependentUpon>UserGroupListEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\ModifyHostGroupAndMemo.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\ModifyHostGroupAndMemo.Designer.cs">
       <DependentUpon>ModifyHostGroupAndMemo.cs</DependentUpon>
@@ -273,13 +306,16 @@
       <DependentUpon>SendTaskRelease.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\InitializeError.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\InitializeError.Designer.cs">
       <DependentUpon>InitializeError.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Base\FormBase.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\AboutIPM.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Dialogs\Notify\AboutIPM.Designer.cs">
       <DependentUpon>AboutIPM.cs</DependentUpon>
@@ -300,6 +336,7 @@
       <DependentUpon>ChatView.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\FrameContainer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\FrameContainer.Designer.cs">
       <DependentUpon>FrameContainer.cs</DependentUpon>
@@ -312,11 +349,13 @@
     </Compile>
     <Compile Include="UI\Forms\FrameContainerConfig.cs" />
     <Compile Include="UI\Forms\ControlContainer.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\ControlContainer.Designer.cs">
       <DependentUpon>ControlContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Forms\SysConfig.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Forms\SysConfig.Designer.cs">
       <DependentUpon>SysConfig.cs</DependentUpon>

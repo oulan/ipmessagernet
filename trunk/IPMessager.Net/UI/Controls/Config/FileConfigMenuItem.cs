@@ -40,7 +40,7 @@ namespace IPMessagerNet.UI.Controls.Config
 		{
 			get
 			{
-				//if (_userControl == null) _userControl = new GeneralConfigPanel() { Dock= DockStyle.Fill };
+				if (_userControl == null) _userControl = new FileConfigPanel();
 				return _userControl;
 			}
 		}

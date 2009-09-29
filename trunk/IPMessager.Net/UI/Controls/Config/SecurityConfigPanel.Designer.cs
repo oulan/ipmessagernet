@@ -28,49 +28,49 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.chkBlackList = new System.Windows.Forms.CheckBox();
+			this.chkEncrypt = new System.Windows.Forms.CheckBox();
+			this.chkFilter = new System.Windows.Forms.CheckBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.txtFilterWords = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// checkBox1
+			// chkBlackList
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(16, 17);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(216, 16);
-			this.checkBox1.TabIndex = 0;
-			this.checkBox1.Text = "启用黑名单功能（需要黑名单插件）";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.chkBlackList.AutoSize = true;
+			this.chkBlackList.Location = new System.Drawing.Point(16, 17);
+			this.chkBlackList.Name = "chkBlackList";
+			this.chkBlackList.Size = new System.Drawing.Size(216, 16);
+			this.chkBlackList.TabIndex = 0;
+			this.chkBlackList.Text = "启用黑名单功能（需要黑名单插件）";
+			this.chkBlackList.UseVisualStyleBackColor = true;
 			// 
-			// checkBox2
+			// chkEncrypt
 			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(16, 39);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(396, 16);
-			this.checkBox2.TabIndex = 0;
-			this.checkBox2.Text = "启用RSA加密通讯（需要RSA加密插件，需要重新启动才能让更改有效）";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.chkEncrypt.AutoSize = true;
+			this.chkEncrypt.Location = new System.Drawing.Point(16, 39);
+			this.chkEncrypt.Name = "chkEncrypt";
+			this.chkEncrypt.Size = new System.Drawing.Size(396, 16);
+			this.chkEncrypt.TabIndex = 0;
+			this.chkEncrypt.Text = "启用RSA加密通讯（需要RSA加密插件，需要重新启动才能让更改有效）";
+			this.chkEncrypt.UseVisualStyleBackColor = true;
 			// 
-			// checkBox3
+			// chkFilter
 			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(16, 61);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(240, 16);
-			this.checkBox3.TabIndex = 0;
-			this.checkBox3.Text = "启用关键字过滤（需要关键字过滤插件）";
-			this.checkBox3.UseVisualStyleBackColor = true;
+			this.chkFilter.AutoSize = true;
+			this.chkFilter.Location = new System.Drawing.Point(16, 61);
+			this.chkFilter.Name = "chkFilter";
+			this.chkFilter.Size = new System.Drawing.Size(240, 16);
+			this.chkFilter.TabIndex = 0;
+			this.chkFilter.Text = "启用关键字过滤（需要关键字过滤插件）";
+			this.chkFilter.UseVisualStyleBackColor = true;
 			// 
 			// groupBox1
 			// 
 			this.groupBox1.Controls.Add(this.label1);
-			this.groupBox1.Controls.Add(this.textBox1);
+			this.groupBox1.Controls.Add(this.txtFilterWords);
 			this.groupBox1.Location = new System.Drawing.Point(16, 106);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(518, 142);
@@ -87,21 +87,21 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "每个关键字之间以空格隔开";
 			// 
-			// textBox1
+			// txtFilterWords
 			// 
-			this.textBox1.Location = new System.Drawing.Point(12, 28);
-			this.textBox1.Multiline = true;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.textBox1.Size = new System.Drawing.Size(500, 91);
-			this.textBox1.TabIndex = 0;
+			this.txtFilterWords.Location = new System.Drawing.Point(12, 28);
+			this.txtFilterWords.Multiline = true;
+			this.txtFilterWords.Name = "txtFilterWords";
+			this.txtFilterWords.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+			this.txtFilterWords.Size = new System.Drawing.Size(500, 91);
+			this.txtFilterWords.TabIndex = 0;
 			// 
 			// SecurityConfigPanel
 			// 
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.checkBox3);
-			this.Controls.Add(this.checkBox2);
-			this.Controls.Add(this.checkBox1);
+			this.Controls.Add(this.chkFilter);
+			this.Controls.Add(this.chkEncrypt);
+			this.Controls.Add(this.chkBlackList);
 			this.Name = "SecurityConfigPanel";
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
@@ -112,11 +112,11 @@
 
 		#endregion
 
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.CheckBox checkBox3;
+		private System.Windows.Forms.CheckBox chkBlackList;
+		private System.Windows.Forms.CheckBox chkEncrypt;
+		private System.Windows.Forms.CheckBox chkFilter;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox txtFilterWords;
 	}
 }
