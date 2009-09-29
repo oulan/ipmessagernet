@@ -27,9 +27,9 @@ namespace IPMessagerNet.Utility
 		{
 			double d = 1024 * 0.9;
 			if (size < d) return String.Format("{0} 字节", size);
-			else if (size < 0x400 * d) return String.Format("{0:#0.0} KB", size / 1024.0);
-			else if (size < 0x100000 * d) return String.Format("{0:#0.0} MB", size / 1048576.0);
-			else return string.Format("{0:#0.0} GB", size / 0x40000000 * 1.0);
+			else if (size < 0x400 * d) return String.Format("{0:#0.00} KB", size / 1024.0);
+			else if (size < 0x100000 * d) return String.Format("{0:#0.00} MB", size / 1048576.0);
+			else return string.Format("{0:#0.00} GB", size / 0x40000000 * 1.0);
 		}
 	}
 }

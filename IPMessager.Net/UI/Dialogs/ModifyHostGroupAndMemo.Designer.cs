@@ -39,7 +39,7 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(25, 22);
+			this.label1.Location = new System.Drawing.Point(13, 48);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(89, 12);
 			this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(25, 51);
+			this.label2.Location = new System.Drawing.Point(13, 22);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(77, 12);
 			this.label2.TabIndex = 0;
@@ -106,11 +106,9 @@
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ModifyHostGroupAndMemo";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "修改主机分组和备注设置";
 			this.Load += new System.EventHandler(this.ModifyHostGroupAndMemo_Load);
 			this.ResumeLayout(false);

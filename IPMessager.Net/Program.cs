@@ -99,7 +99,10 @@ namespace IPMessagerNet
 					BindedIP = System.Net.IPAddress.Any,
 					VersionInfo = "飞鸽传书.Net " + Application.ProductVersion + "，BY 木鱼",
 					AbsenceSuffix = " [离开]",
-					Services = FSLib.IPMessager.Services.ServiceManager.GetServices()
+					Services = FSLib.IPMessager.Services.ServiceManager.GetServices(),
+					EnableBPContinue = true,
+					TaskKeepTime = 600,
+					TasksMultiReceiveCount = 1
 				},
 				AbsenceMessage = new List<string>()
 				{

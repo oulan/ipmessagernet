@@ -26,7 +26,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			cbBip.SelectedIndex = 0;
 			foreach (var ip in Env.IPMClient.LocalAddresses)
 			{
-				if (ip.IsIPv6LinkLocal) continue;
+				if (ip.IsIPv6LinkLocal) continue;	//跳过本地地址
 				cbBip.Items.Add(ip.ToString());
 				if (ip.ToString() == Env.IPMClient.Config.BindedIPString) cbBip.SelectedIndex = cbBip.Items.Count - 1;
 			}
