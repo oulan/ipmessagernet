@@ -40,7 +40,7 @@ namespace IPMessagerNet.UI.Dialogs.Config
 			});
 			this.hlist.Items.AddRange(lvtlist);
 
-			this.btnClose.Click += button1_Click;
+			this.btnClose.Click += btnClose_Click;
 			this.FormClosing += UserGroupListEditor_FormClosing;
 			btnClear.Click += (s, f) => hlist.Items.Clear();
 			btnRemove.Click += (s, f) =>
@@ -64,7 +64,7 @@ namespace IPMessagerNet.UI.Dialogs.Config
 			DialogResult = HostCount > 0 ? DialogResult.No : DialogResult.OK;
 		}
 
-		void button1_Click(object sender, EventArgs e)
+		void btnClose_Click(object sender, EventArgs e)
 		{
 			Close();
 		}
