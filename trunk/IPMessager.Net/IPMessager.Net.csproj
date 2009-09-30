@@ -84,6 +84,9 @@
     <EmbeddedResource Include="UI\Controls\Config\NetworkConfigPanel.resx">
       <DependentUpon>NetworkConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Config\NotifyConfigPanel.resx">
+      <DependentUpon>NotifyConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\PluginsConfigPanel.resx">
       <DependentUpon>PluginsConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -369,15 +372,15 @@
     <Compile Include="Utility\HostSortComarer_Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\_公用类库_\FSLib.Drawing\FSLib.Drawing.csproj">
+    <ProjectReference Include="..\..\..\..\..\_公用类库_\FSLib.Drawing\FSLib.Drawing.csproj">
       <Project>{24CF8AA8-D177-42DC-BABC-9B404131B5F9}</Project>
       <Name>FSLib.Drawing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\_公用类库_\FSLib.Windows\FSLib.Windows.csproj">
+    <ProjectReference Include="..\..\..\..\..\_公用类库_\FSLib.Windows\FSLib.Windows.csproj">
       <Project>{3BF83FF3-C0B7-40D8-B95F-9379AE506D49}</Project>
       <Name>FSLib.Windows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FSLib.IPMessager\FSLib.IPMessager.csproj">
+    <ProjectReference Include="..\..\..\FSLib.IPMessager\trunk\FSLib.IPMessager.csproj">
       <Project>{E86FEBC4-2100-44BB-8703-78DB3845E726}</Project>
       <Name>FSLib.IPMessager</Name>
     </ProjectReference>
