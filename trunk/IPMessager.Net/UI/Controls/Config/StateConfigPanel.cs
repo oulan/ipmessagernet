@@ -21,7 +21,7 @@ namespace IPMessagerNet.UI.Controls.Config
 		}
 
 		//初始化
-		void InitEditor()
+		protected override void InitEditor()
 		{
 			chkAutoReply.CheckedChanged += (s, e) => txtAbsenceAutoReply.Enabled = chkAutoReply.Checked;
 			ckAutoReply.CheckedChanged += (s, e) => txtAutoReplyMessage.Enabled = ckAutoReply.Checked;

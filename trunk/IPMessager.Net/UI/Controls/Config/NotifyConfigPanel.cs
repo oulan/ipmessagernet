@@ -73,12 +73,48 @@ namespace IPMessagerNet.UI.Controls.Config
 		void SwitchOT(IPMessagerNet.Config.HostBallonTip type)
 		{
 			btnOTSpec.Enabled = type == IPMessagerNet.Config.HostBallonTip.Special;
+			Env.HostConfig.HostOnlineTip = type;
 		}
 
 		//选择下线提示类型
 		void SwitchFT(IPMessagerNet.Config.HostBallonTip type)
 		{
 			btnFTSpec.Enabled = type == IPMessagerNet.Config.HostBallonTip.Special;
+			Env.HostConfig.HostOfflineTip = type;
+		}
+
+		Dialogs.HostListEditor hle;
+
+		//设置上线提示主机列表
+		private void btnOTSpec_Click(object sender, EventArgs e)
+		{
+			if (hle == null) hle = new IPMessagerNet.UI.Dialogs.HostListEditor();
+			hle.SelectedHost = Env.HostConfig.OnlineTip.ToArray();
+
+			if (hle.ShowDialog() == DialogResult.OK)
+			{
+				if (Env.HostConfig.OnlineTip != null) Env.HostConfig.OnlineTip.Clear();
+				else Env.HostConfig.OnlineTip = new List<string>();
+
+				Env.HostConfig.OnlineTip.AddRange(hle.SelectedHost);
+				
+			}
+		}
+
+		//设置下线提示主机列表
+		private void btnFTSpec_Click(object sender, EventArgs e)
+		{
+			if (hle == null) hle = new IPMessagerNet.UI.Dialogs.HostListEditor();
+			hle.SelectedHost = Env.HostConfig.OfflineTip.ToArray();
+
+			if (hle.ShowDialog() == DialogResult.OK)
+			{
+				if (Env.HostConfig.OfflineTip != null) Env.HostConfig.OfflineTip.Clear();
+				else Env.HostConfig.OfflineTip = new List<string>();
+
+				Env.HostConfig.OfflineTip.AddRange(hle.SelectedHost);
+
+			}
 		}
 	}
 }

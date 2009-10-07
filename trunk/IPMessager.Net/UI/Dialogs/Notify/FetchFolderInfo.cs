@@ -73,7 +73,7 @@ namespace IPMessagerNet.UI.Dialogs.Notify
 				}
 				else
 				{
-					sizeDefine.Add(fileName, 0l);
+					sizeDefine.Add(fileName, 0L);
 				}
 			}
 
@@ -130,7 +130,7 @@ namespace IPMessagerNet.UI.Dialogs.Notify
 		long CalculateFolderSize(string path)
 		{
 			if (!System.IO.Directory.Exists(path)) return 0;
-			long size = 0l;
+			long size = 0L;
 
 			this.Invoke(updater, path);
 

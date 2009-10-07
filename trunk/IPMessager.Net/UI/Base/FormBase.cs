@@ -18,20 +18,16 @@ namespace IPMessagerNet.UI.Base
 		{
 			InitializeButtonImage();
 
-			this.Load += (s, e) =>
-			{
-				SetButtonImage(this);
-			};
+			this.Load += (s, e) => SetButtonImage(this);
 		}
 
 		/// <summary>
 		/// 初始化按钮图像
 		/// </summary>
-		private void InitializeButtonImage()
+		private static void InitializeButtonImage()
 		{
 			if (ButtonImages == null)
 			{
-				string path = "";
 				System.Drawing.Image img = null;
 				if (Env.ClientConfig == null)
 				{
@@ -59,7 +55,7 @@ namespace IPMessagerNet.UI.Base
 		/// <summary>
 		/// 设置按钮的图标
 		/// </summary>
-		void SetButtonImage(Control ctl)
+		static void SetButtonImage(Control ctl)
 		{
 			foreach (Control c in ctl.Controls)
 			{

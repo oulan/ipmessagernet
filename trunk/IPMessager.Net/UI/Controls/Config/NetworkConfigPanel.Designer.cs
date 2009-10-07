@@ -174,7 +174,7 @@
 			// 
 			// btnDialDelete
 			// 
-			this.btnDialDelete.Location = new System.Drawing.Point(220, 346);
+			this.btnDialDelete.Location = new System.Drawing.Point(220, 343);
 			this.btnDialDelete.Name = "btnDialDelete";
 			this.btnDialDelete.Size = new System.Drawing.Size(42, 22);
 			this.btnDialDelete.TabIndex = 8;
