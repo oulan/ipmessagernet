@@ -66,6 +66,7 @@
 			this.btnOTSpec.TabIndex = 2;
 			this.btnOTSpec.Text = "设置主机...";
 			this.btnOTSpec.UseVisualStyleBackColor = true;
+			this.btnOTSpec.Click += new System.EventHandler(this.btnOTSpec_Click);
 			// 
 			// rbOTSpec
 			// 
@@ -130,6 +131,7 @@
 			this.btnFTSpec.TabIndex = 2;
 			this.btnFTSpec.Text = "设置主机...";
 			this.btnFTSpec.UseVisualStyleBackColor = true;
+			this.btnFTSpec.Click += new System.EventHandler(this.btnFTSpec_Click);
 			// 
 			// rbFTSpec
 			// 

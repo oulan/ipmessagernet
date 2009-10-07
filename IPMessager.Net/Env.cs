@@ -27,6 +27,19 @@ namespace IPMessagerNet
 		public static UI.Forms.FrameContainer MainForm { get; internal set; }
 
 		/// <summary>
+		/// 是否正在运行中
+		/// </summary>
+		public static bool IsRunning { get; set; }
+
+		/// <summary>
+		/// 类型构造器
+		/// </summary>
+		static Env()
+		{
+			IsRunning = false;
+		}
+
+		/// <summary>
 		/// 聊天设置
 		/// </summary>
 		public static Config.ChatAreaConfig ChatConfig
@@ -77,7 +90,7 @@ namespace IPMessagerNet
 		/// </summary>
 		public static void InitializeIPMClient()
 		{
-			if (IPMClient == null && ClientConfig != null)
+			if (IPMClient == null && ClientConfig != null && !IsRunning)
 			{
 				IPMClient = new FSLib.IPMessager.IPMClient(ClientConfig.IPMClientConfig);
 
@@ -86,6 +99,8 @@ namespace IPMessagerNet
 				{
 					HandleServiceConfigLoad(s.ServiceProvider);
 				});
+
+				IsRunning = true;
 			}
 		}
 
