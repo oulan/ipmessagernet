@@ -40,6 +40,7 @@
 			this.rbFTAll = new System.Windows.Forms.RadioButton();
 			this.rbFTNone = new System.Windows.Forms.RadioButton();
 			this.label2 = new System.Windows.Forms.Label();
+			this.chkDOTInQuite = new IPMessagerNet.UI.EditorControls.CheckBoxEditor();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -174,8 +175,21 @@
 			this.label2.TabIndex = 0;
 			this.label2.Text = "下线提示功能是当有主机下线时，在托盘区显示气泡提示。\r\n你可以在这里设置自己需要的提示方式。";
 			// 
+			// chkDOTInQuite
+			// 
+			this.chkDOTInQuite.AutoSize = true;
+			this.chkDOTInQuite.DataInstance = null;
+			this.chkDOTInQuite.DataMemberName = "DisableHostTipInQuite";
+			this.chkDOTInQuite.Location = new System.Drawing.Point(11, 175);
+			this.chkDOTInQuite.Name = "chkDOTInQuite";
+			this.chkDOTInQuite.Size = new System.Drawing.Size(264, 16);
+			this.chkDOTInQuite.TabIndex = 1;
+			this.chkDOTInQuite.Text = "当我设置静音模式时，禁止所有的上下线提示";
+			this.chkDOTInQuite.UseVisualStyleBackColor = true;
+			// 
 			// NotifyConfigPanel
 			// 
+			this.Controls.Add(this.chkDOTInQuite);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "NotifyConfigPanel";
@@ -185,6 +199,7 @@
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -202,5 +217,6 @@
 		private System.Windows.Forms.RadioButton rbFTAll;
 		private System.Windows.Forms.RadioButton rbFTNone;
 		private System.Windows.Forms.Label label2;
+		private IPMessagerNet.UI.EditorControls.CheckBoxEditor chkDOTInQuite;
 	}
 }

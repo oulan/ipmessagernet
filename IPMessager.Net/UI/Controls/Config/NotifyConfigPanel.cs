@@ -17,6 +17,8 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		private void NotifyConfigPanel_Load(object sender, EventArgs e)
 		{
+			chkDOTInQuite.DataInstance = Env.ClientConfig.HostInfo;
+
 			switch (Env.HostConfig.HostOnlineTip)
 			{
 				case IPMessagerNet.Config.HostBallonTip.None:

@@ -4,6 +4,10 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading;
 using IPMessagerNet.UI.Controls.HostTreeView;
+using FSLib.IPMessager.Services;
+using System.Net;
+using FSLib.IPMessager.Entity;
+using IPMessagerNet.Config;
 
 namespace IPMessagerNet
 {
@@ -73,7 +77,7 @@ namespace IPMessagerNet
 		/// <returns></returns>
 		static Config.ClientConfig GetDefaultConfig()
 		{
-			return new IPMessagerNet.Config.ClientConfig()
+			return new ClientConfig()
 			{
 				Themes = "Default",
 				HostListViewConfig = new ListConfig()
@@ -83,7 +87,7 @@ namespace IPMessagerNet
 					FirstOrder = ListConfig.SortOrder.State,
 					SecondOrder = ListConfig.SortOrder.IP
 				},
-				IPMClientConfig = new FSLib.IPMessager.Entity.Config()
+				IPMClientConfig = new FSLib.IPMessager.Entity.Config
 				{
 					Port = 2425,
 					GroupName = Environment.MachineName,
@@ -96,10 +100,10 @@ namespace IPMessagerNet
 					AutoDetectVersion = true,
 					BanedHost = new List<string>(),
 					KeepedHostList = new List<string>(),
-					BindedIP = System.Net.IPAddress.Any,
+					BindedIP = IPAddress.Any,
 					VersionInfo = "飞鸽传书.Net " + Application.ProductVersion + "，BY 木鱼",
 					AbsenceSuffix = " [离开]",
-					Services = FSLib.IPMessager.Services.ServiceManager.GetServices(),
+					Services = ServiceManager.GetServices(),
 					EnableBPContinue = true,
 					TaskKeepTime = 600,
 					TasksMultiReceiveCount = 1
@@ -119,21 +123,22 @@ namespace IPMessagerNet
 					WindowState = -1,
 					HostListContainerWindowState = -1
 				},
-				HostGroupConfig = new FSLib.IPMessager.Entity.SerializableDictionary<string, string>(),
-				HostInfo = new IPMessagerNet.Config.HostInfoConfig()
+				HostGroupConfig = new SerializableDictionary<string, string>(),
+				HostInfo = new HostInfoConfig()
 				{
-					DisplayStyle = IPMessagerNet.Config.HostNameDisplayStyle.MemoBeforeName,
-					HostMemo = new FSLib.IPMessager.Entity.SerializableDictionary<string, string>(),
-					HostOfflineTip = IPMessagerNet.Config.HostBallonTip.All,
-					HostOnlineTip = IPMessagerNet.Config.HostBallonTip.All,
+					DisplayStyle = HostNameDisplayStyle.MemoBeforeName,
+					HostMemo = new SerializableDictionary<string, string>(),
+					HostOfflineTip = HostBallonTip.All,
+					HostOnlineTip = HostBallonTip.All,
 					OfflineTip = new List<string>(),
-					OnlineTip = new List<string>()
+					OnlineTip = new List<string>(),
+					DisableHostTipInQuite = true
 				},
-				ChatConfig = new IPMessagerNet.Config.ChatAreaConfig()
+				ChatConfig = new ChatAreaConfig()
 				{
 					EnableCtrlEnterShortKey = true
 				},
-				FunctionConfig = new IPMessagerNet.Config.ClientFunctionConfig()
+				FunctionConfig = new ClientFunctionConfig()
 				{
 					Share_CalculateFolderSize = true
 				}
