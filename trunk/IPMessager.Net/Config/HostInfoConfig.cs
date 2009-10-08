@@ -37,6 +37,11 @@ namespace IPMessagerNet.Config
 		/// 下线主机
 		/// </summary>
 		public List<string> OfflineTip { get; set; }
+
+		/// <summary>
+		/// 是否在静音模式中禁止所有上下线提示
+		/// </summary>
+		public bool DisableHostTipInQuite { get; set; }
 	}
 
 	public enum HostNameDisplayStyle : int

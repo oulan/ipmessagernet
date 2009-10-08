@@ -87,6 +87,9 @@
     <EmbeddedResource Include="UI\Controls\Config\AdvanceConfigPanel.resx">
       <DependentUpon>AdvanceConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Config\AudioConfigPanel.resx">
+      <DependentUpon>AudioConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\FileConfigPanel.resx">
       <DependentUpon>FileConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +174,12 @@
     <Compile Include="UI\Controls\Config\AdvanceConfigPanel.Designer.cs">
       <DependentUpon>AdvanceConfigPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\Config\AudioConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\AudioConfigPanel.Designer.cs">
+      <DependentUpon>AudioConfigPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Controls\Config\AutoUpdaePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +198,7 @@
     <Compile Include="UI\Controls\Config\HostConfigPanel.Designer.cs">
       <DependentUpon>HostConfigPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Controls\Config\AudioConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\NetworkConfigPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

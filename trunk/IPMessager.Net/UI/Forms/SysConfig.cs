@@ -32,11 +32,12 @@ namespace IPMessagerNet.UI.Forms
 			lstMenu.Items.Add(new Controls.Config.GeneralConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.HostConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.StateConfigMenuItem());
-			lstMenu.Items.Add(new Controls.Config.NetworkConfigMenuItem());
+			lstMenu.Items.Add(new Controls.Config.AudioConfigMenuItem());
+			lstMenu.Items.Add(new Controls.Config.NotifyConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.SecurityConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.FileConfigMenuItem());
-			lstMenu.Items.Add(new Controls.Config.NotifyConfigMenuItem());
-			lstMenu.Items.Add(new Controls.Config.AdvancedConfigMenuItem());
+			lstMenu.Items.Add(new Controls.Config.NetworkConfigMenuItem());
+			//lstMenu.Items.Add(new Controls.Config.AdvancedConfigMenuItem());
 
 			//加载插件的设置页面
 			foreach (var p in Env.ClientConfig.IPMClientConfig.Services)

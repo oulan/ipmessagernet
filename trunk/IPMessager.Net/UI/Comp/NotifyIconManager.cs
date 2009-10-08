@@ -135,7 +135,7 @@ namespace IPMessagerNet.UI.Comp
 
 		void OnlineHost_HostOffline(object sender, FSLib.IPMessager.Entity.OnlineHost.HostEventArgs e)
 		{
-			if (DateTime.Now < initTime || IsMute) return;
+			if (DateTime.Now < initTime || (IsMute && Env.ClientConfig.HostInfo.DisableHostTipInQuite)) return;
 
 			if (
 				Env.HostConfig.HostOfflineTip == IPMessagerNet.Config.HostBallonTip.None
@@ -151,7 +151,7 @@ namespace IPMessagerNet.UI.Comp
 
 		void OnlineHost_HostOnline(object sender, FSLib.IPMessager.Entity.OnlineHost.HostEventArgs e)
 		{
-			if (DateTime.Now < initTime || IsMute) return;
+			if (DateTime.Now < initTime || (IsMute && Env.ClientConfig.HostInfo.DisableHostTipInQuite)) return;
 
 			if (
 				Env.HostConfig.HostOnlineTip == IPMessagerNet.Config.HostBallonTip.None
