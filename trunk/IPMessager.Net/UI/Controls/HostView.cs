@@ -139,7 +139,7 @@ namespace IPMessagerNet.UI.Controls
 		{
 			//--------------------工具栏--------------------
 			int tmp;
-			toolbarImageArray = FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemePicturePath("Toolbar", "HostViewToolBar"), 16, 16, out tmp).ToArray();
+			toolbarImageArray = FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemeFilePath("Toolbar", "HostViewToolBar"), 16, 16, out tmp).ToArray();
 			tmp = 0;
 			FSLib.Windows.Controls.ControlHelper.FillMenuButtonImage(tbHost, toolbarImageArray, ref tmp);
 

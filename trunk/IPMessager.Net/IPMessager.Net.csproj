@@ -47,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -70,6 +71,7 @@
     <Compile Include="Config\ClientConfig.cs" />
     <Compile Include="Config\ClientFunctionConfig.cs" />
     <Compile Include="Config\HostInfoConfig.cs" />
+    <Compile Include="Config\SoundConfig.cs" />
     <Compile Include="Core\HostInfoManager.cs" />
     <Compile Include="Core\ProfileManager.cs" />
     <Compile Include="Core\ServiceManager.cs" />
@@ -168,6 +170,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="UI\Comp\SoundManager.cs" />
     <Compile Include="UI\Controls\Config\AdvanceConfigPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,7 +236,7 @@
     </Compile>
     <Compile Include="UI\Controls\Config\TestingConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\PluginsConfigMenuItem.cs" />
-    <Compile Include="UI\Controls\Config\AdvancedConfigMenuItem.cs" />
+    <Compile Include="UI\Controls\Config\AdvanceConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\NotifyConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\NetworkConfigMenuItem.cs" />
     <Compile Include="UI\Controls\Config\FileConfigMenuItem.cs" />

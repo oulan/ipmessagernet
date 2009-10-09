@@ -176,6 +176,11 @@ namespace IPMessagerNet.UI.Controls.Config
 				act.CurrentValue++;
 
 				if (installedService.Contains(ns.TypeName.ToLower())) continue;
+				if (!ns.Enabled)
+				{
+					act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Remove, "插件 " + ns.ServiceDescription.Name + " 默认为禁用状态");
+				}
+
 				count++;
 
 				act.StateMessage = "正在尝试加载 " + ns.ServiceDescription.Name + " ....";

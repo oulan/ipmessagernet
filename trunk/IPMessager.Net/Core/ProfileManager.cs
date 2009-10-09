@@ -134,7 +134,7 @@ namespace IPMessagerNet.Core
 		/// 获得资源图片位置
 		/// </summary>
 		/// <returns></returns>
-		public static string GetThemePicturePath(string catName, string fileName)
+		public static string GetThemeFilePath(string catName, string fileName)
 		{
 			return string.Format("{0}{2}Themes{2}{1}{2}{3}{2}{4}{5}", BinPath, Env.ClientConfig.Themes, System.IO.Path.DirectorySeparatorChar, catName, fileName, fileName.IndexOf(".") > 0 ? "" : ".png");
 		}
@@ -173,7 +173,7 @@ namespace IPMessagerNet.Core
 		/// <returns></returns>
 		public static System.Drawing.Image GetThemePicture(string catName, string fileName)
 		{
-			string path = GetThemePicturePath(catName, fileName);
+			string path = GetThemeFilePath(catName, fileName);
 			if (System.IO.File.Exists(path)) return FSLib.Drawing.Image.ImageHelper.LoadFromFile(path);
 			else return null;
 		}
@@ -184,7 +184,7 @@ namespace IPMessagerNet.Core
 		/// <returns></returns>
 		public static System.Drawing.Image GetThemePicture(this object obj, string cata)
 		{
-			string path = GetThemePicturePath(cata, obj.GetType().Name);
+			string path = GetThemeFilePath(cata, obj.GetType().Name);
 			if (System.IO.File.Exists(path)) return FSLib.Drawing.Image.ImageHelper.LoadFromFile(path);
 			else return null;
 		}

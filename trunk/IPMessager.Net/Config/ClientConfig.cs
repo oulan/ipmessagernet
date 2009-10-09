@@ -60,6 +60,24 @@ namespace IPMessagerNet.Config
 		/// </summary>
 		public ClientFunctionConfig FunctionConfig { get; set; }
 
+		private SoundConfig _sound;
+		/// <summary>
+		/// 声音设置
+		/// </summary>
+		public SoundConfig Sound
+		{
+			get
+			{
+				if (_sound == null) _sound = new SoundConfig();
+
+				return _sound;
+			}
+			set
+			{
+				_sound = value;
+			}
+		}
+
 		#endregion
 
 		#region 对象操作
