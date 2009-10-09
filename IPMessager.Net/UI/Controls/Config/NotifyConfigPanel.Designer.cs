@@ -41,6 +41,7 @@
 			this.rbFTNone = new System.Windows.Forms.RadioButton();
 			this.label2 = new System.Windows.Forms.Label();
 			this.chkDOTInQuite = new IPMessagerNet.UI.EditorControls.CheckBoxEditor();
+			this.chkAutoChange = new IPMessagerNet.UI.EditorControls.CheckBoxEditor();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -187,8 +188,21 @@
 			this.chkDOTInQuite.Text = "当我设置静音模式时，禁止所有的上下线提示";
 			this.chkDOTInQuite.UseVisualStyleBackColor = true;
 			// 
+			// chkAutoChange
+			// 
+			this.chkAutoChange.AutoSize = true;
+			this.chkAutoChange.DataInstance = null;
+			this.chkAutoChange.DataMemberName = "AutoChangeCurrentTabToNew";
+			this.chkAutoChange.Location = new System.Drawing.Point(11, 197);
+			this.chkAutoChange.Name = "chkAutoChange";
+			this.chkAutoChange.Size = new System.Drawing.Size(312, 16);
+			this.chkAutoChange.TabIndex = 2;
+			this.chkAutoChange.Text = "当收到新信息时，自动切换当前窗口到有新信息的窗口";
+			this.chkAutoChange.UseVisualStyleBackColor = true;
+			// 
 			// NotifyConfigPanel
 			// 
+			this.Controls.Add(this.chkAutoChange);
 			this.Controls.Add(this.chkDOTInQuite);
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
@@ -218,5 +232,6 @@
 		private System.Windows.Forms.RadioButton rbFTNone;
 		private System.Windows.Forms.Label label2;
 		private IPMessagerNet.UI.EditorControls.CheckBoxEditor chkDOTInQuite;
+		private IPMessagerNet.UI.EditorControls.CheckBoxEditor chkAutoChange;
 	}
 }

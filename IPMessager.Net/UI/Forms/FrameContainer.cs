@@ -137,16 +137,16 @@ namespace IPMessagerNet.UI.Forms
 			if (isSystemOpClose == false)
 			{
 				isSystemOpClose = true;
+
 				if (hostContainer != null) hostContainer.Close();
-
-				Env.IPMClient.Dispose();
-				Env.ClientConfig.Save();
-
 				//窗口挨个关闭,防止如果有模式窗体没有关闭的时候无法退出
 				foreach (Form f in Application.OpenForms)
 				{
 					if (f != this) f.Close();
 				}
+
+				//关闭静态资源
+				Env.Close();
 
 				Application.Exit();
 			}

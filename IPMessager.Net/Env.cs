@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FSLib.IPMessager.Services;
+using IPMessagerNet.UI.Comp;
 
 namespace IPMessagerNet
 {
@@ -30,6 +31,32 @@ namespace IPMessagerNet
 		/// 是否正在运行中
 		/// </summary>
 		public static bool IsRunning { get; set; }
+
+		/// <summary>
+		/// 声音提示
+		/// </summary>
+		public static SoundManager SoundManager { get; set; }
+
+		/// <summary>
+		/// 初始化配置
+		/// </summary>
+		public static void Init()
+		{
+			SoundManager = new SoundManager();
+			InitializeIPMClient();
+		}
+
+		/// <summary>
+		/// 释放本类静态对象的资源占用
+		/// </summary>
+		public static void Close()
+		{
+			IsRunning = false;
+			SoundManager.Dispose();
+			IPMClient.Dispose();
+			ClientConfig.Save();
+		}
+
 
 		/// <summary>
 		/// 类型构造器

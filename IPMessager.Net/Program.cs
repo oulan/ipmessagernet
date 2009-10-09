@@ -48,8 +48,8 @@ namespace IPMessagerNet
 			}
 			Env.ClientConfig.IPMClientConfig.VersionInfo = "飞鸽传书.Net " + Application.ProductVersion + "，BY 木鱼";
 
-			//初始化IPM客户端
-			Env.InitializeIPMClient();
+			//初始化IPM客户端和声音
+			Env.Init();
 
 			if (Env.IPMClient.IsInitialized)
 			{
