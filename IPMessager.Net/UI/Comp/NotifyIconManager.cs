@@ -16,6 +16,11 @@ namespace IPMessagerNet.UI.Comp
 		public NotifyIcon NotifyIcon { get; set; }
 
 		/// <summary>
+		/// 声音提示
+		/// </summary>
+		public SoundManager SoundManager { get; set; }
+
+		/// <summary>
 		/// 文字标头
 		/// </summary>
 		string textPrefix;
