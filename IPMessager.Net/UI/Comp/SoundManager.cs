@@ -74,7 +74,7 @@ namespace IPMessagerNet.UI.Comp
 			_newmsgPlayer = new SoundPlayer(Core.ProfileManager.GetThemeFilePath("sounds", "newmsg.wav"));
 			_newfilePlayer = new SoundPlayer(Core.ProfileManager.GetThemeFilePath("sounds", "newfile.wav"));
 			_filesuccPlayer = new SoundPlayer(Core.ProfileManager.GetThemeFilePath("sounds", "filesucc.wav"));
-			_fileErrorPlayer = new SoundPlayer(Core.ProfileManager.GetThemeFilePath("sounds", "filesucc.wav"));
+			_fileErrorPlayer = new SoundPlayer(Core.ProfileManager.GetThemeFilePath("sounds", "fileerror.wav"));
 		}
 
 		/// <summary>
