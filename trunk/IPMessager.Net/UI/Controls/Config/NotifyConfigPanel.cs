@@ -18,6 +18,7 @@ namespace IPMessagerNet.UI.Controls.Config
 		private void NotifyConfigPanel_Load(object sender, EventArgs e)
 		{
 			chkDOTInQuite.DataInstance = Env.ClientConfig.HostInfo;
+			chkAutoChange.DataInstance = Env.ClientConfig.ChatConfig;
 
 			switch (Env.HostConfig.HostOnlineTip)
 			{

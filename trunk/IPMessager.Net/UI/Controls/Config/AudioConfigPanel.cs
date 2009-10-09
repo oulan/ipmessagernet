@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using IPMessagerNet.UI.EditorControls;
 
 namespace IPMessagerNet.UI.Controls.Config
 {
@@ -17,7 +18,10 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		private void AudioConfigPanel_Load(object sender, EventArgs e)
 		{
-
+			foreach (var item in gbEvents.Controls)
+			{
+				(item as CheckBoxEditor).DataInstance = Env.ClientConfig.Sound;
+			}
 		}
 	}
 }

@@ -16,11 +16,6 @@ namespace IPMessagerNet.UI.Comp
 		public NotifyIcon NotifyIcon { get; set; }
 
 		/// <summary>
-		/// 声音提示
-		/// </summary>
-		public SoundManager SoundManager { get; set; }
-
-		/// <summary>
 		/// 文字标头
 		/// </summary>
 		string textPrefix;
@@ -142,6 +137,9 @@ namespace IPMessagerNet.UI.Comp
 		{
 			if (DateTime.Now < initTime || (IsMute && Env.ClientConfig.HostInfo.DisableHostTipInQuite)) return;
 
+			//SOUND
+			if (!IsMute && Env.ClientConfig.Sound.EnableOfflineSound) Env.SoundManager.PlayOffline();
+
 			if (
 				Env.HostConfig.HostOfflineTip == IPMessagerNet.Config.HostBallonTip.None
 				||
@@ -157,6 +155,9 @@ namespace IPMessagerNet.UI.Comp
 		void OnlineHost_HostOnline(object sender, FSLib.IPMessager.Entity.OnlineHost.HostEventArgs e)
 		{
 			if (DateTime.Now < initTime || (IsMute && Env.ClientConfig.HostInfo.DisableHostTipInQuite)) return;
+
+			//SOUND
+			if (!IsMute && Env.ClientConfig.Sound.EnableOnlineSound) Env.SoundManager.PlayOnline();
 
 			if (
 				Env.HostConfig.HostOnlineTip == IPMessagerNet.Config.HostBallonTip.None

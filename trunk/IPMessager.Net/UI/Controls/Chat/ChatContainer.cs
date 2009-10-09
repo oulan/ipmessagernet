@@ -53,15 +53,27 @@ namespace IPMessagerNet.UI.Controls.Chat
 				else cs.SendTaskExpires(e);	//否则在聊天窗口内显示
 			};
 			Env.IPMClient.FileTaskManager.SendItemStart += (s, e) => OpenChatTab(e.Host, false, f => f.SendTaskStart(e));
-			Env.IPMClient.FileTaskManager.SendTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => f.SendTaskFinish(e));
+			Env.IPMClient.FileTaskManager.SendTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => { 
+				f.SendTaskFinish(e);
+				//SOUND
+				if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableFileSuccSound) Env.SoundManager.PlayFileSucc();
+			});
 			Env.IPMClient.FileTaskManager.ReceiveTaskAdded += (s, e) => OpenChatTab(e.Host, true, f => f.AddReceiveTask(e));
-			Env.IPMClient.FileTaskManager.ReceiveTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => f.ReceiveTaskFinish(e));
+			Env.IPMClient.FileTaskManager.ReceiveTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => { 
+				f.ReceiveTaskFinish(e);
+				//SOUND
+				if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableFileSuccSound) Env.SoundManager.PlayFileSucc();
+			});
 			Env.IPMClient.FileTaskManager.ReceiveItemStart += (s, e) => OpenChatTab(e.Host, false, f => f.ReceiveTaskStart(e));
 			Env.IPMClient.FileTaskManager.TaskItemProgressChanged += (s, e) => OpenChatTab(e.Host, false, f => f.TaskItemProgressChange(e));
 			Env.IPMClient.FileTaskManager.TaskItemStateChanged += (s, e) => OpenChatTab(e.Host, false, f => f.TaskItemStateChange(e));
 			Env.IPMClient.FileTaskManager.ReleaseFileRequired += (s, e) =>
 			{
 				if (!OpenChatTab(e.Host, false, f => f.SendTaskDiscard(e))) new Dialogs.Notify.FileShare.SendTaskRelease(e.TaskInfo).ShowDialog();
+			};
+			Env.IPMClient.FileTaskModule.FileSystemOperationError += (s, e) =>
+			{
+				OpenChatTab(e.Host, false, f => f.FileOperationError(e));
 			};
 		}
 
@@ -85,14 +97,31 @@ namespace IPMessagerNet.UI.Controls.Chat
 			{
 				FileTaskInfo task = FSLib.IPMessager.Entity.FileTaskItemHelper.DecompileTaskInfo(host, msg);
 				task.TaskList.ForEach(s => s.FullPath = Env.ClientConfig.FunctionConfig.Share_LastSelectedPath);
-				if (task != null) OpenChatTab(host, true, s => s.ReceiveFileRequired(task));
+				if (task != null)
+				{
+					OpenChatTab(host, true, s =>
+					{
+						s.ReceiveFileRequired(task);
+						if (Env.ClientConfig.ChatConfig.AutoChangeCurrentTabToNew)
+						{
+							this.SelectTab(s as TabPage);
+						}
+					});
+					//SOUND
+					if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableNewFileSound) Env.SoundManager.PlayNewFile();
+				}
 			}
 
 			if (string.IsNullOrEmpty(msg.NormalMsg.Trim())) return;
 
 			IChatService cs = this.OpenChatTab(host);
 			cs.DropMessage(msg);
-			this.SelectedTab = cs as TabPage;
+			if (Env.ClientConfig.ChatConfig.AutoChangeCurrentTabToNew)
+			{
+				this.SelectTab(cs as TabPage);
+			}
+			//SOUND
+			if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableNewMsgSound) Env.SoundManager.PlayNewMsg();
 		}
 
 		/// <summary>
@@ -239,8 +268,6 @@ namespace IPMessagerNet.UI.Controls.Chat
 				chats.Add(cs);
 				OnSessionCountChanged(new EventArgs());
 			}
-
-			if (cs != null) (cs as TabPage).Focus();
 
 			return cs;
 		}

@@ -82,6 +82,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayOnline()
 		{
+			if (disposed) return;
 			_onlinePlayer.Play();
 		}
 
@@ -90,6 +91,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayOffline()
 		{
+			if (disposed) return;
 			_offlinePlayer.Play();
 		}
 
@@ -98,6 +100,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayNewMsg()
 		{
+			if (disposed) return;
 			_newmsgPlayer.Play();
 		}
 
@@ -106,6 +109,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayNewFile()
 		{
+			if (disposed) return;
 			_newfilePlayer.Play();
 		}
 
@@ -114,6 +118,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayFileSucc()
 		{
+			if (disposed) return;
 			_filesuccPlayer.Play();
 		}
 
@@ -122,6 +127,7 @@ namespace IPMessagerNet.UI.Comp
 		/// </summary>
 		public void PlayFileError()
 		{
+			if (disposed) return;
 			_fileErrorPlayer.Play();
 		}
 	}
