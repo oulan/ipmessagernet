@@ -231,7 +231,7 @@ namespace IPMessagerNet.UI.Controls
 				Env.ClientConfig.AbsenceMessage.Add(str);
 				mStateAbsenceMsg.TextBox.Text = "";
 				ToolStripMenuItem tsmi = new ToolStripMenuItem(str);
-				tsmi.Click += (g, h) => { SwitchToAbsence((s as ToolStripMenuItem).Text); }; ;
+				tsmi.Click += (g, h) => { SwitchToAbsence((g as ToolStripMenuItem).Text); }; ;
 				SwitchToAbsence(str);
 				this.mStateAbsence.DropDownItems.Insert(mStateAbsence.DropDownItems.Count - 2, tsmi);
 				e.Handled = true;
