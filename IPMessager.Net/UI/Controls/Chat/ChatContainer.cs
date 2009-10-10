@@ -53,13 +53,15 @@ namespace IPMessagerNet.UI.Controls.Chat
 				else cs.SendTaskExpires(e);	//否则在聊天窗口内显示
 			};
 			Env.IPMClient.FileTaskManager.SendItemStart += (s, e) => OpenChatTab(e.Host, false, f => f.SendTaskStart(e));
-			Env.IPMClient.FileTaskManager.SendTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => { 
+			Env.IPMClient.FileTaskManager.SendTaskFinished += (s, e) => OpenChatTab(e.Host, false, f =>
+			{
 				f.SendTaskFinish(e);
 				//SOUND
 				if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableFileSuccSound) Env.SoundManager.PlayFileSucc();
 			});
 			Env.IPMClient.FileTaskManager.ReceiveTaskAdded += (s, e) => OpenChatTab(e.Host, true, f => f.AddReceiveTask(e));
-			Env.IPMClient.FileTaskManager.ReceiveTaskFinished += (s, e) => OpenChatTab(e.Host, false, f => { 
+			Env.IPMClient.FileTaskManager.ReceiveTaskFinished += (s, e) => OpenChatTab(e.Host, false, f =>
+			{
 				f.ReceiveTaskFinish(e);
 				//SOUND
 				if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableFileSuccSound) Env.SoundManager.PlayFileSucc();
@@ -75,6 +77,10 @@ namespace IPMessagerNet.UI.Controls.Chat
 			{
 				OpenChatTab(e.Host, false, f => f.FileOperationError(e));
 			};
+			Env.IPMClient.FileTaskManager.FileReceiveTaskReDroped += (s, e) => { 
+				AddReceiveTask(e.TaskInfo.RemoteHost, e.TaskInfo);
+				e.IsHandled = true;
+			};
 		}
 
 
@@ -89,7 +95,30 @@ namespace IPMessagerNet.UI.Controls.Chat
 			cs.AddSendTask(task);
 		}
 
+		/// <summary>
+		/// 处理文件请求
+		/// </summary>
+		/// <param name="host"></param>
+		/// <param name="task"></param>
+		private void AddReceiveTask(Host host, FileTaskInfo task)
+		{
+			OpenChatTab(host, true, s =>
+								{
+									s.ReceiveFileRequired(task);
+									if (Env.ClientConfig.ChatConfig.AutoChangeCurrentTabToNew)
+									{
+										this.SelectTab(s as TabPage);
+									}
+								});
+			//SOUND
+			if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableNewFileSound) Env.SoundManager.PlayNewFile();
+		}
 
+		/// <summary>
+		/// 处理信息到达事件
+		/// </summary>
+		/// <param name="host"></param>
+		/// <param name="msg"></param>
 		void TextMessageReceived(Host host, FSLib.IPMessager.Entity.Message msg)
 		{
 			//文件附加？
@@ -99,16 +128,7 @@ namespace IPMessagerNet.UI.Controls.Chat
 				task.TaskList.ForEach(s => s.FullPath = Env.ClientConfig.FunctionConfig.Share_LastSelectedPath);
 				if (task != null)
 				{
-					OpenChatTab(host, true, s =>
-					{
-						s.ReceiveFileRequired(task);
-						if (Env.ClientConfig.ChatConfig.AutoChangeCurrentTabToNew)
-						{
-							this.SelectTab(s as TabPage);
-						}
-					});
-					//SOUND
-					if (!Forms.FrameContainer.ContainerForm.IsMute && Env.ClientConfig.Sound.EnableNewFileSound) Env.SoundManager.PlayNewFile();
+					AddReceiveTask(host, task);
 				}
 			}
 
