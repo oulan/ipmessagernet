@@ -37,7 +37,16 @@ namespace IPMessagerNet.UI.Controls.Config
 		{
 			ListViewItem lvt = new ListViewItem(item.ServiceDescription.Name);
 			lvt.SubItems.Add(GetStateDescription(item.State));
-			lvt.SubItems.Add(item.ServiceDescription.Version);
+
+			if (item.ServiceProvider == null)
+			{
+				lvt.SubItems.Add("");
+			}
+			else
+			{
+				lvt.SubItems.Add(item.ServiceProvider.Version);
+			}
+
 			lvt.SubItems.Add(item.ServiceDescription.Author);
 			lvt.SubItems.Add(item.Assembly);
 			lvt.SubItems.Add(item.TypeName);
@@ -62,6 +71,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			{
 				imgList.Images.Add(item.TypeName, item.ServiceProvider.PluginIcon);
 				lvtItem.ImageKey = item.TypeName;
+				lvtItem.SubItems[2].Text = item.ServiceProvider.Version;
 			}
 		}
 
@@ -176,6 +186,10 @@ namespace IPMessagerNet.UI.Controls.Config
 				act.CurrentValue++;
 
 				if (installedService.Contains(ns.TypeName.ToLower())) continue;
+
+				//因为我们需要显示插件信息，所以需要预先加载啦。。。
+				if (!ns.EnsureLoadAssembly()) continue;
+
 				if (!ns.Enabled)
 				{
 					act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Remove, "插件 " + ns.ServiceDescription.Name + " 默认为禁用状态");
