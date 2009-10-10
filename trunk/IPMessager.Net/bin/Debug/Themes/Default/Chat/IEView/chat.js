@@ -101,7 +101,7 @@ var fileState = ["等待中", "初始化中", "传输中", "传输失败", "已�
 var errDesc = ["打开文件", "打开目录", "创建目录", "创建文件", "写入数据"];
 
 function fileOpError(type, path) {
-	applyTipInfo("文件操作错误，原因：<strong>" + errDesc[type] + "</strong>，文件(夹)：<strong>" + path + "</strong>");
+	applyTipInfo("文件读取或创建失败，操作：<strong>" + errDesc[type] + "</strong>，文件(夹)：<strong>" + path + "</strong>");
 }
 
 //=======================================================文件发送部分=======================================================
@@ -168,7 +168,7 @@ function fileSendingStateChange(pkgid, idx, filename, curName, state) {
 		$("tr[idt=" + (idx) + "]", obj).remove();
 	}
 
-	if (state == 3) applyTipInfo("<strong>" + curName + "</strong> 发送失败。");
+	if (state == 3) applyTipInfo("<strong>" + curName + "</strong> 发送失败，等待对方重新接收。");
 	else if (state == 4) applyTipInfo("<strong>" + curName + "</strong> 发送成功。");
 }
 
@@ -208,6 +208,21 @@ function fileSendingProgressChange(v) {
 /*收到对方文件发送请求*/
 function receiveFileRequired(task, saveToSameLocation) {
 	task = eval("(" + task + ")");
+	if (task.isretry) {
+		denyTask = task;
+		setTimeout("_receiveFileRequired(null,"+saveToSameLocation+");", 1500);
+	} else {
+		_receiveFileRequired(task, saveToSameLocation);
+	}
+}
+
+var denyTask = null;
+/*收到对方文件发送请求*/
+function _receiveFileRequired(task, saveToSameLocation) {
+	if (task == null) {
+		task = denyTask;
+		denyTask = null;
+	}
 	var html = new Array();
 	html.push('<div class="fileAttach" pkgid="' + task.pkgid + '"><h5>对方请求发送文件</h5><table>');
 	html.push('<tr><th class="idx">序号</th><th class="filename">名称</th><th class="size">大小</th><th class="location">保存位置</th></tr>');
@@ -216,7 +231,7 @@ function receiveFileRequired(task, saveToSameLocation) {
 	for (var i in list) {
 		var t = list[i];
 
-		html.push('<tr idx="' + i + '" pkgid="' + task.pkgid + '" tp="' + t.isfolder + '"><td>' + i + '</td><td>' + t.filename + '</td><td>' + t.filesize + '</td><td><input type="text" readonly="readonly" class="pathtxt" value="' + t.path + '" /><input type="button" value="..." class="browser" /></td></tr>');
+		html.push('<tr idx="' + i + '" pkgid="' + task.pkgid + '" tp="' + t.isfolder + '"><td>' + i + '</td><td>' + t.filename + '</td><td>' + t.filesize + (t.isfolder?"(文件夹)":"") + '</td><td><input type="text" readonly="readonly" class="pathtxt" value="' + t.path + '" /><input type="button" value="..." class="browser" /></td></tr>');
 	}
 	html.push('</table>');
 	html.push('<p><input type="checkbox" />保存到同一个目录<input type="button" value="确定接收" class="ok" /><input type="button" value="忽略文件" class="cancel" /></p>');
@@ -300,7 +315,7 @@ function fileRecvStateChange(pkgid, idx, filename, curName, state) {
 		$("tr[idt=" + (idx) + "]", obj).remove();
 	}
 
-	if (state == 3) applyTipInfo("<strong>" + curName + "</strong> 接收失败。");
+	if (state == 3) applyTipInfo("<strong>" + curName + "</strong> 接收失败，请稍后重试。");
 	else if (state == 4) applyTipInfo("<strong>" + curName + "</strong> 接收成功。");
 }
 

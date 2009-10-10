@@ -564,7 +564,7 @@ namespace IPMessagerNet.UI.Controls.Chat.IEView
 			}
 
 			if (PaddingReceiveTask == null) PaddingReceiveTask = new List<FileTaskInfo>();
-			PaddingReceiveTask.Add(task);
+			if (PaddingReceiveTask.FindIndex(s => s.PackageID == task.PackageID) == -1) PaddingReceiveTask.Add(task);	//FIX:重试接收重复包编号错误
 
 			browser.InvokeScript("receiveFileRequired", task.ToJsonInfo(), Env.ClientConfig.FunctionConfig.Share_UseSameLocationToSave);
 		}
@@ -608,7 +608,7 @@ namespace IPMessagerNet.UI.Controls.Chat.IEView
 		public virtual void OnTaskDiscardRequired(FileTaskEventArgs ea)
 		{
 			if (TaskDiscardRequired != null)
-				TaskDiscardRequired(null/*this*/, ea);
+				TaskDiscardRequired(this, ea);
 		}
 		#endregion
 
