@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using FSLib.IPMessager.Services;
+using System.Linq;
 
 namespace IPMessagerNet.UI.Controls.Config
 {
@@ -21,14 +22,71 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		void SecurityConfigPanel_Load(object sender, EventArgs e)
 		{
+			chkBlackList.CheckedChanged += (s, f) =>
+			{
+				gpBL.Enabled = chkBlackList.Enabled;
+			};
+
+			this.lnkBLAdd.Click += lnkBLAdd_Click;
+			this.lnkBLRemove.Click += (s, f) =>
+			{
+				if (this.lstBL.SelectedIndex == -1) return;
+				Env.IPMClient.Config.BanedHost.Remove(this.lstBL.SelectedItem.ToString());
+				this.lstBL.Items.RemoveAt(this.lstBL.SelectedIndex);
+			};
+
+
 			BindServiceState();
 		}
 
+		ServiceInfo _blanklistPlugins = null;
+
+		/// <summary>
+		/// 查找黑名单插件
+		/// </summary>
+		/// <returns></returns>
+		bool SearchBlankListPlugins()
+		{
+			if (_blanklistPlugins != null) return _blanklistPlugins.ServiceProvider != null;
+			else
+			{
+				_blanklistPlugins = Env.IPMClient.ServiceList.SingleOrDefault(s => s.TypeName == FSLib.IPMessager.Services.ServiceManager.InnerServiceTypeList[FSLib.IPMessager.Services.InnerService.BlackListBlocker]);
+				return _blanklistPlugins != null && _blanklistPlugins.ServiceProvider != null;
+			}
+		}
+
+		void lnkBLAdd_Click(object sender, EventArgs e)
+		{
+			var box = CreateInputBox("输入", "请输入要屏蔽的IP地址，不能为空", false);
+
+			if (box.ShowDialog() == DialogResult.OK)
+			{
+				string v = box.InputedText;
+				if (Env.IPMClient.Config.BanedHost.Contains(v)) Infomation("看起来输入的IP已经被屏蔽过了.....");
+				else
+				{
+					Env.IPMClient.Config.BanedHost.Add(v);
+					this.lstBL.Items.Add(v);
+				}
+			}
+		}
+
+
 		void SecurityConfigPanel_VisibleChanged(object sender, EventArgs e)
 		{
-			if (this.Visible)
+			if (!this.Visible)
+				return;
+
+			BindServiceState();
+
+			//查找插件
+			if (_blanklistPlugins == null)
 			{
-				BindServiceState();
+				gpBL.Enabled = SearchBlankListPlugins();
+			}
+			else
+			{
+				gpBL.Enabled = _blanklistPlugins.ServiceProvider != null;
 			}
 		}
 
@@ -43,6 +101,9 @@ namespace IPMessagerNet.UI.Controls.Config
 
 			isFirstLoad = false;
 			isInBinding = false;
+
+			lstBL.Items.Clear();
+			lstBL.Items.AddRange(Env.IPMClient.Config.BanedHost.ToArray());
 		}
 
 		/// <summary>

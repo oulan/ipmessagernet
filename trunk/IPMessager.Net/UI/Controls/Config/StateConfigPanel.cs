@@ -24,7 +24,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			chkAutoReply.DataInstance = ckAutoReply.DataInstance = txtAbsenceAutoReply.DataInstance = txtAbsenceSuffix.DataInstance = txtAutoReplyMessage.DataInstance = Env.IPMClient.Config;
 
 			//离开状态信息
-			//lstLeaveMessage.Items.AddRange(Env.ClientConfig.AbsenceMessage.ToArray());
+			lstLeaveMessage.Items.AddRange(Env.ClientConfig.AbsenceMessage.ToArray());
 			lnkLMAdd.Click += lnkLMAdd_Click;
 			lnkLMRemove.Click += (s, e) =>
 			{

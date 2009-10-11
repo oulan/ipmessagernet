@@ -47,13 +47,13 @@ namespace IPMessagerNet.UI.Controls.HostTreeView
             this.mBan,
             this.mDial});
 			this.ctxMenu.Name = "ctxMenu";
-			this.ctxMenu.Size = new System.Drawing.Size(182, 126);
+			this.ctxMenu.Size = new System.Drawing.Size(190, 98);
 			this.ctxMenu.Opening += new System.ComponentModel.CancelEventHandler(this.ctxMenu_Opening);
 			// 
 			// mChat
 			// 
 			this.mChat.Name = "mChat";
-			this.mChat.Size = new System.Drawing.Size(181, 22);
+			this.mChat.Size = new System.Drawing.Size(189, 22);
 			this.mChat.Text = "和TA对话";
 			this.mChat.ToolTipText = "同TA进入消息对话模式";
 			// 
@@ -65,7 +65,8 @@ namespace IPMessagerNet.UI.Controls.HostTreeView
 			// mGroup
 			// 
 			this.mGroup.Name = "mGroup";
-			this.mGroup.Size = new System.Drawing.Size(181, 22);
+			this.mGroup.ShortcutKeys = System.Windows.Forms.Keys.F2;
+			this.mGroup.Size = new System.Drawing.Size(189, 22);
 			this.mGroup.Text = "修改备注/分组";
 			this.mGroup.ToolTipText = "显示的时候以备注优先，修改备注可以更快的识别TA";
 			// 
@@ -80,7 +81,8 @@ namespace IPMessagerNet.UI.Controls.HostTreeView
 			// mDial
 			// 
 			this.mDial.Name = "mDial";
-			this.mDial.Size = new System.Drawing.Size(181, 22);
+			this.mDial.ShortcutKeys = System.Windows.Forms.Keys.Insert;
+			this.mDial.Size = new System.Drawing.Size(189, 22);
 			this.mDial.Text = "加入拨号列表";
 			// 
 			// HostTreeView
