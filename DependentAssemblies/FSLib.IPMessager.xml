@@ -1126,6 +1126,13 @@
             <param name="buffer">缓冲区</param>
             <returns></returns>
         </member>
+        <member name="M:FSLib.IPMessager.Network.TCPThread.ReceiveByBuffer(System.Net.Sockets.TcpClient,System.Byte[],System.Int32)">
+            <summary>
+            接收数据
+            </summary>
+            <param name="buffer">缓冲区</param>
+            <returns></returns>
+        </member>
         <member name="M:FSLib.IPMessager.Network.TCPThread.ReceiveByBuffer(System.Net.Sockets.NetworkStream,System.Byte[])">
             <summary>
             接收数据
@@ -1267,18 +1274,18 @@
         </member>
         <member name="T:FSLib.IPMessager.Properties.Resources">
             <summary>
-              强类型资源类，用于查找本地化字符串等。
+              A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
         <member name="P:FSLib.IPMessager.Properties.Resources.ResourceManager">
             <summary>
-              返回此类使用的缓存 ResourceManager 实例。
+              Returns the cached ResourceManager instance used by this class.
             </summary>
         </member>
         <member name="P:FSLib.IPMessager.Properties.Resources.Culture">
             <summary>
-              为使用此强类型资源类的所有资源查找
-              重写当前线程的 CurrentUICulture 属性。
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
             </summary>
         </member>
         <member name="T:FSLib.IPMessager.Entity.MessageEventArgs">
@@ -2927,6 +2934,25 @@
             </summary>
             <remarks></remarks>
         </member>
+        <member name="F:FSLib.IPMessager.IPMClient.synchronizationContext">
+            <summary>
+            线程同步上下文
+            </summary>
+        </member>
+        <member name="M:FSLib.IPMessager.IPMClient.SendSynchronizeMessage(System.Threading.SendOrPostCallback,System.Object)">
+            <summary>
+            提交同步消息
+            </summary>
+            <param name="call">调用的委托</param>
+            <param name="arg">参数</param>
+        </member>
+        <member name="M:FSLib.IPMessager.IPMClient.SendASynchronizeMessage(System.Threading.SendOrPostCallback,System.Object)">
+            <summary>
+            提交异步消息
+            </summary>
+            <param name="call">调用的委托</param>
+            <param name="arg">参数</param>
+        </member>
         <member name="P:FSLib.IPMessager.IPMClient.LocalAddresses">
             <summary>
             本地IP地址
@@ -2980,6 +3006,11 @@
         <member name="P:FSLib.IPMessager.IPMClient.IsInitialized">
             <summary>
             返回是否初始化成功
+            </summary>
+        </member>
+        <member name="P:FSLib.IPMessager.IPMClient.NeedPostMessage">
+            <summary>
+            返回是否需要提交线程同步信息
             </summary>
         </member>
         <member name="T:FSLib.IPMessager.Entity.Config">
