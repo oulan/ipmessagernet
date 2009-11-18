@@ -20,6 +20,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		private void NetworkConfigPanel_Load(object sender, EventArgs e)
 		{
+			tcpTimeout.DataInstance = Env.IPMClient.Config;
 			nudPort.Value = Env.IPMClient.Config.Port;
 			//绑定iP
 			cbBip.Items.Add("不绑定任何IP");
