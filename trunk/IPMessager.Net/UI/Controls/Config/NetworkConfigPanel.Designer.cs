@@ -28,7 +28,6 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
 			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
 			this.horizontalLine2 = new FSLib.Windows.Controls.HorizontalLine();
 			this.label1 = new System.Windows.Forms.Label();
@@ -43,8 +42,9 @@
 			this.btnDialDelete = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.chkFilterLocalMsg = new System.Windows.Forms.CheckBox();
-			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			((System.ComponentModel.ISupportInitialize)(this.nudPort)).BeginInit();
+			this.toolTip1 = new System.Windows.Forms.ToolTip();
+			this.tcpTimeout = new IPMessagerNet.UI.EditorControls.NumbericUpDownEditor();
+			this.label5 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -183,6 +183,8 @@
 			// 
 			// groupBox1
 			// 
+			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.tcpTimeout);
 			this.groupBox1.Controls.Add(this.chkFilterLocalMsg);
 			this.groupBox1.Location = new System.Drawing.Point(270, 128);
 			this.groupBox1.Name = "groupBox1";
@@ -194,13 +196,47 @@
 			// chkFilterLocalMsg
 			// 
 			this.chkFilterLocalMsg.AutoSize = true;
-			this.chkFilterLocalMsg.Location = new System.Drawing.Point(6, 20);
+			this.chkFilterLocalMsg.Location = new System.Drawing.Point(6, 215);
 			this.chkFilterLocalMsg.Name = "chkFilterLocalMsg";
 			this.chkFilterLocalMsg.Size = new System.Drawing.Size(168, 16);
 			this.chkFilterLocalMsg.TabIndex = 1;
 			this.chkFilterLocalMsg.Text = "忽略来自本地IP发送的消息";
 			this.toolTip1.SetToolTip(this.chkFilterLocalMsg, "默认情况下，飞鸽传书会接收来自自己的消息，因此你能在列表中看到自己。\r\n如果启用此选项，将会忽略这些消息。\r\n\r\n此选项需要安装“本地回发消息过滤插件”。");
 			this.chkFilterLocalMsg.UseVisualStyleBackColor = true;
+			// 
+			// tcpTimeout
+			// 
+			this.tcpTimeout.DataInstance = null;
+			this.tcpTimeout.DataMemberName = "ConnectionTimeout";
+			this.tcpTimeout.Location = new System.Drawing.Point(176, 26);
+			this.tcpTimeout.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+			this.tcpTimeout.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+			this.tcpTimeout.Name = "tcpTimeout";
+			this.tcpTimeout.Size = new System.Drawing.Size(55, 21);
+			this.tcpTimeout.TabIndex = 2;
+			this.tcpTimeout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.tcpTimeout.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(6, 28);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(113, 12);
+			this.label5.TabIndex = 3;
+			this.label5.Text = "文件传输连接超时：";
 			// 
 			// NetworkConfigPanel
 			// 
@@ -219,7 +255,6 @@
 			this.Controls.Add(this.horizontalLine1);
 			this.Name = "NetworkConfigPanel";
 			this.Load += new System.EventHandler(this.NetworkConfigPanel_Load);
-			((System.ComponentModel.ISupportInitialize)(this.nudPort)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
@@ -244,5 +279,7 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.CheckBox chkFilterLocalMsg;
 		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.Label label5;
+		private EditorControls.NumbericUpDownEditor tcpTimeout;
 	}
 }
