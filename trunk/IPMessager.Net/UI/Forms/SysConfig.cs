@@ -21,6 +21,8 @@ namespace IPMessagerNet.UI.Forms
 			{
 				LoadMenu();
 				InitEvents();
+
+				this.panConfig.Controls.Add(new Controls.Config.ConfigPanelHome());
 			}
 		}
 
@@ -37,6 +39,7 @@ namespace IPMessagerNet.UI.Forms
 			lstMenu.Items.Add(new Controls.Config.SecurityConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.FileConfigMenuItem());
 			lstMenu.Items.Add(new Controls.Config.NetworkConfigMenuItem());
+			lstMenu.Items.Add(new Controls.Config.ThemeConfigMenuItem());
 			//lstMenu.Items.Add(new Controls.Config.AdvancedConfigMenuItem());
 
 			//加载插件的设置页面

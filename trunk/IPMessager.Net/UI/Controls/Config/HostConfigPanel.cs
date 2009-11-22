@@ -95,7 +95,7 @@ namespace IPMessagerNet.UI.Controls.Config
 				return new ListViewItem(new string[] { m.Value, m.Key, h == null ? "-" : h.NickName + "/" + h.GroupName });
 			}).ToArray());
 
-			lnkMemoEdit.Click += (s, e) => { if (lvUserGroup.SelectedIndices.Count > 0)lvUserGroup.SelectedItems[0].BeginEdit(); };
+			lnkMemoEdit.Click += (s, e) => { if (lvMemo.SelectedIndices.Count > 0)lvMemo.SelectedItems[0].BeginEdit(); };
 			lnkMemoClear.Click += (s, e) => { if (lvMemo.Items.Count > 0 && Question("确定要全部删除吗?", true)) { lvMemo.Items.Clear(); Env.HostConfig.HostMemo.Clear(); } };
 			lnkMemoDelete.Click += (s, e) =>
 			{
