@@ -18,6 +18,7 @@
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation />
+    <StartupObject />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -35,7 +36,6 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
-    <StartupObject />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -60,6 +60,18 @@
     </DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSLib, Version=1.5.3612.33218, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentAssemblies\FSLib.dll</HintPath>
+    </Reference>
+    <Reference Include="FSLib.IPMessager, Version=2.0.3613.32209, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentAssemblies\FSLib.IPMessager.dll</HintPath>
+    </Reference>
+    <Reference Include="FSLib.Windows, Version=1.1.3613.33542, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DependentAssemblies\FSLib.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -77,6 +89,7 @@
     <Compile Include="API\ConfigPanelBase.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="API\ILogProvider.cs" />
     <Compile Include="API\IPluginUI.cs" />
     <Compile Include="API\PluginBase.cs" />
     <Compile Include="Cache\ControlCache.cs" />
@@ -106,6 +119,9 @@
     <EmbeddedResource Include="UI\Controls\Config\AudioConfigPanel.resx">
       <DependentUpon>AudioConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Config\ConfigPanelHome.resx">
+      <DependentUpon>ConfigPanelHome.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\FileConfigPanel.resx">
       <DependentUpon>FileConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\Config\TestingConfigPanel.resx">
       <DependentUpon>TestingConfigPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Controls\Config\ThemeConfigPanel.resx">
+      <DependentUpon>ThemeConfigPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Controls\HostTreeView\HostTreeView.resx">
       <DependentUpon>HostTreeView.cs</DependentUpon>
@@ -202,6 +221,12 @@
     </Compile>
     <Compile Include="UI\Controls\Config\AutoUpdaePanel.Designer.cs">
       <DependentUpon>AutoUpdaePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Config\ConfigPanelHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\ConfigPanelHome.Designer.cs">
+      <DependentUpon>ConfigPanelHome.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\Config\FileConfigPanel.cs">
       <SubType>UserControl</SubType>
@@ -296,6 +321,13 @@
     </Compile>
     <Compile Include="UI\Controls\Config\TestingConfigPanel.Designer.cs">
       <DependentUpon>TestingConfigPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\Config\ThemeConfigMenuItem.cs" />
+    <Compile Include="UI\Controls\Config\ThemeConfigPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\Config\ThemeConfigPanel.Designer.cs">
+      <DependentUpon>ThemeConfigPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Controls\HostTreeView\HostAddressNode.cs" />
     <Compile Include="UI\Controls\HostTreeView\HostCollectionBase.cs" />
@@ -426,27 +458,13 @@
     <Compile Include="Utility\HostSortComarer_Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\_公用类库_\FSLib.Windows\FSLib.Windows.csproj">
-      <Project>{3BF83FF3-C0B7-40D8-B95F-9379AE506D49}</Project>
-      <Name>FSLib.Windows</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\_公用类库_\FSLib\FSLib.csproj">
-      <Project>{2287640B-15C5-4928-9B2E-512983D3271D}</Project>
-      <Name>FSLib</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\FSLib.IPMessager\trunk\FSLib.IPMessager.csproj">
-      <Project>{E86FEBC4-2100-44BB-8703-78DB3845E726}</Project>
-      <Name>FSLib.IPMessager</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="ExeIcon.ico" />
     <None Include="Resources\ButtonImage.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <ProductName>.NET Framework Client Profile</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -481,9 +499,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\Plugins\" />
-  </ItemGroup>
-  <ItemGroup>
     <PublishFile Include="ExeIcon.ico">
       <Visible>False</Visible>
       <Group>
@@ -495,7 +510,20 @@
       <FileType>File</FileType>
     </PublishFile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\Plugins\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>SET dp=$(ProjectDir)\..\DependentAssemblies\
+SET sp=$(TargetDir)
+
+ECHO Y|del "%25dp%25\*.*"
+copy "%25sp%25\*.dll" "%25dp%25\"
+copy "%25sp%25\*.pdb" "%25dp%25\"
+copy "%25sp%25\*.xml" "%25dp%25\"
+copy "%25sp%25\*.exe" "%25dp%25\"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

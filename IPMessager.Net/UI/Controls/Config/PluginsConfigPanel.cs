@@ -122,10 +122,11 @@ namespace IPMessagerNet.UI.Controls.Config
 
 			pluginsList.SelectedIndexChanged += (s, e) =>
 			{
-				if (pluginsList.FocusedItem == null) txtDesc.Text = "";
+				if (pluginsList.FocusedItem == null) { txtDesc.Text = ""; btnConfig.Enabled = false; }
 				ServiceInfo si = pluginsList.FocusedItem.Tag as ServiceInfo;
 				txtDesc.Text = string.Format("{0}\r\n\r\n插件作者：{1}\r\n联系方式：{2}\r\n版权声明：{3}", si.ServiceDescription.Description,
 					si.ServiceDescription.Author, si.ServiceDescription.Contact, si.ServiceDescription.CopyRight);
+				btnConfig.Enabled = (si.ServiceProvider != null && si.ServiceProvider.SupportsConfig);
 			};
 			pluginsList.ItemChecked += (s, e) =>
 			{
@@ -163,6 +164,15 @@ namespace IPMessagerNet.UI.Controls.Config
 				FSLib.Windows.Dialogs.WaitingDialog wd = new FSLib.Windows.Dialogs.WaitingDialog() { ShowLog = true };
 				wd.ThreadWorker = p => { RescanServices(p); };
 				wd.ShowDialog();
+			};
+			btnConfig.Click += (s, e) =>
+			{
+				if (pluginsList.FocusedItem == null) return;
+
+				ServiceInfo si = pluginsList.FocusedItem.Tag as ServiceInfo;
+				Form f = si.ServiceProvider.ConfigUI as Form;
+
+				if (f != null) f.ShowDialog();
 			};
 		}
 

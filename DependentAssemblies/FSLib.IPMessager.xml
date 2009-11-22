@@ -840,6 +840,11 @@
             发送失败的事件数据类
             </summary>
         </member>
+        <member name="M:FSLib.IPMessager.Network.PackageSendEventArgs.#ctor">
+            <summary>
+            构造一个新的对象
+            </summary>
+        </member>
         <member name="P:FSLib.IPMessager.Network.PackageSendEventArgs.Package">
             <summary>
             发送失败的数据
@@ -1044,6 +1049,11 @@
             插件服务管理
             </summary>
         </member>
+        <member name="F:FSLib.IPMessager.Services.ServiceManager.InnerServiceTypeList">
+            <summary>
+            内置的插件类名映射字典
+            </summary>
+        </member>
         <member name="M:FSLib.IPMessager.Services.ServiceManager.GetServicesInAssembly(System.String)">
             <summary>
             通过文件路径来查找所有服务
@@ -1071,6 +1081,16 @@
             <param name="loaderPath">文件夹列表</param>
             <returns>查找的结果</returns>
         </member>
+        <member name="T:FSLib.IPMessager.Services.MessageFilterServiceProvider">
+            <summary>
+            内置的消息关键字过滤插件
+            </summary>
+        </member>
+        <member name="M:FSLib.IPMessager.Services.MessageFilterServiceProvider.Startup">
+            <summary>
+            启动插件(已重载)
+            </summary>
+        </member>
         <member name="P:FSLib.IPMessager.Services.MessageFilterServiceProvider.SupportLoad">
             <summary>
             是否支持中途加载(已重载)
@@ -1079,6 +1099,11 @@
         <member name="P:FSLib.IPMessager.Services.MessageFilterServiceProvider.SupportUnload">
             <summary>
             是否支持中途卸载(已重载)
+            </summary>
+        </member>
+        <member name="T:FSLib.IPMessager.Network.TCPThread">
+            <summary>
+            文件发送、接收线程
             </summary>
         </member>
         <member name="M:FSLib.IPMessager.Network.TCPThread.StartListener">
@@ -1251,6 +1276,11 @@
             主机的通信端口
             </summary>
             <remarks></remarks>
+        </member>
+        <member name="T:FSLib.IPMessager.Services.InnerService">
+            <summary>
+            内置插件枚举
+            </summary>
         </member>
         <member name="F:FSLib.IPMessager.Services.InnerService.BlackListBlocker">
             <summary>
@@ -1762,6 +1792,36 @@
             <param name="taskMessage"></param>
             <returns></returns>
         </member>
+        <member name="T:FSLib.IPMessager.Entity.FileSystemOperationType">
+            <summary>
+            文件系统操作异常类别
+            </summary>
+        </member>
+        <member name="F:FSLib.IPMessager.Entity.FileSystemOperationType.OpenFileToSend">
+            <summary>
+            打开文件发送
+            </summary>
+        </member>
+        <member name="F:FSLib.IPMessager.Entity.FileSystemOperationType.QueryDirectory">
+            <summary>
+            读取目录
+            </summary>
+        </member>
+        <member name="F:FSLib.IPMessager.Entity.FileSystemOperationType.CreateDirectory">
+            <summary>
+            创建目录
+            </summary>
+        </member>
+        <member name="F:FSLib.IPMessager.Entity.FileSystemOperationType.CreateFile">
+            <summary>
+            创建文件
+            </summary>
+        </member>
+        <member name="F:FSLib.IPMessager.Entity.FileSystemOperationType.WriteData">
+            <summary>
+            写入数据
+            </summary>
+        </member>
         <member name="T:FSLib.IPMessager.Entity.FileSystemOperationErrorEventArgs">
             <summary>
             文件系统操作事件数据
@@ -2139,6 +2199,11 @@
             消息包信息
             </summary>
         </member>
+        <member name="M:FSLib.IPMessager.Network.NetworkPackageEventArgs.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
         <member name="P:FSLib.IPMessager.Network.NetworkPackageEventArgs.IPEndPoint">
             <summary>
             远程主机的IP端口
@@ -2196,6 +2261,11 @@
         <member name="P:FSLib.IPMessager.Entity.FileTaskItem.CurrentFileTransfered">
             <summary>
             当前传输完成的长度
+            </summary>
+        </member>
+        <member name="P:FSLib.IPMessager.Entity.FileTaskItem.FileTransferedAtPast">
+            <summary>
+            以前传输过的长度（断点续传时速度不正确修正）
             </summary>
         </member>
         <member name="P:FSLib.IPMessager.Entity.FileTaskItem.FinishedFileCount">
@@ -3237,6 +3307,11 @@
         <member name="P:FSLib.IPMessager.Entity.Config.AutoDetectVersion">
             <summary>
             自动查询主机版本
+            </summary>
+        </member>
+        <member name="P:FSLib.IPMessager.Entity.Config.ConnectionTimeout">
+            <summary>
+            TCP连接超时
             </summary>
         </member>
         <member name="P:FSLib.IPMessager.Entity.Config.Buffer">

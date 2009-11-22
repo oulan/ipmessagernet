@@ -112,6 +112,15 @@ namespace IPMessagerNet.Core
 		#region 存取资源文件
 
 		/// <summary>
+		/// 获得主题所在文件夹位置
+		/// </summary>
+		/// <returns></returns>
+		public static string GetThemeFolderRoot()
+		{
+			return string.Format("{0}{1}Themes{1}", BinPath, System.IO.Path.DirectorySeparatorChar);
+		}
+
+		/// <summary>
 		/// 获得主题资源文件夹位置
 		/// </summary>
 		/// <returns></returns>
