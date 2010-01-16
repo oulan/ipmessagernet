@@ -35,7 +35,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		private void LoadPluginItem(ServiceInfo item)
 		{
-			ListViewItem lvt = new ListViewItem(item.ServiceDescription.Name);
+			ListViewItem lvt = new ListViewItem(item.ServiceDescription == null ? item.TypeName : item.ServiceDescription.Name);
 			lvt.SubItems.Add(GetStateDescription(item.State));
 
 			if (item.ServiceProvider == null)
