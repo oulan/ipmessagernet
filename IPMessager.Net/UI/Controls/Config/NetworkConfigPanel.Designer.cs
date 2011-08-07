@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Controls.Config
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Controls.Config
 {
 	partial class NetworkConfigPanel
 	{
@@ -28,8 +30,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
-			this.horizontalLine2 = new FSLib.Windows.Controls.HorizontalLine();
+			this.components = new System.ComponentModel.Container();
+			this.horizontalLine1 = new HorizontalLine();
+			this.horizontalLine2 = new HorizontalLine();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -41,11 +44,13 @@
 			this.btnDialAdd = new System.Windows.Forms.Button();
 			this.btnDialDelete = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.chkFilterLocalMsg = new System.Windows.Forms.CheckBox();
-			this.toolTip1 = new System.Windows.Forms.ToolTip();
-			this.tcpTimeout = new IPMessagerNet.UI.EditorControls.NumbericUpDownEditor();
 			this.label5 = new System.Windows.Forms.Label();
+			this.tcpTimeout = new IPMessagerNet.UI.EditorControls.NumbericUpDownEditor();
+			this.chkFilterLocalMsg = new System.Windows.Forms.CheckBox();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			((System.ComponentModel.ISupportInitialize)(this.nudPort)).BeginInit();
 			this.groupBox1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.tcpTimeout)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// horizontalLine1
@@ -174,7 +179,7 @@
 			// 
 			// btnDialDelete
 			// 
-			this.btnDialDelete.Location = new System.Drawing.Point(220, 343);
+			this.btnDialDelete.Location = new System.Drawing.Point(220, 345);
 			this.btnDialDelete.Name = "btnDialDelete";
 			this.btnDialDelete.Size = new System.Drawing.Size(42, 22);
 			this.btnDialDelete.TabIndex = 8;
@@ -193,16 +198,14 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "高级网络选项";
 			// 
-			// chkFilterLocalMsg
+			// label5
 			// 
-			this.chkFilterLocalMsg.AutoSize = true;
-			this.chkFilterLocalMsg.Location = new System.Drawing.Point(6, 215);
-			this.chkFilterLocalMsg.Name = "chkFilterLocalMsg";
-			this.chkFilterLocalMsg.Size = new System.Drawing.Size(168, 16);
-			this.chkFilterLocalMsg.TabIndex = 1;
-			this.chkFilterLocalMsg.Text = "忽略来自本地IP发送的消息";
-			this.toolTip1.SetToolTip(this.chkFilterLocalMsg, "默认情况下，飞鸽传书会接收来自自己的消息，因此你能在列表中看到自己。\r\n如果启用此选项，将会忽略这些消息。\r\n\r\n此选项需要安装“本地回发消息过滤插件”。");
-			this.chkFilterLocalMsg.UseVisualStyleBackColor = true;
+			this.label5.AutoSize = true;
+			this.label5.Location = new System.Drawing.Point(6, 28);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(113, 12);
+			this.label5.TabIndex = 3;
+			this.label5.Text = "文件传输连接超时：";
 			// 
 			// tcpTimeout
 			// 
@@ -229,14 +232,16 @@
             0,
             0});
 			// 
-			// label5
+			// chkFilterLocalMsg
 			// 
-			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(6, 28);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(113, 12);
-			this.label5.TabIndex = 3;
-			this.label5.Text = "文件传输连接超时：";
+			this.chkFilterLocalMsg.AutoSize = true;
+			this.chkFilterLocalMsg.Location = new System.Drawing.Point(6, 215);
+			this.chkFilterLocalMsg.Name = "chkFilterLocalMsg";
+			this.chkFilterLocalMsg.Size = new System.Drawing.Size(168, 16);
+			this.chkFilterLocalMsg.TabIndex = 1;
+			this.chkFilterLocalMsg.Text = "忽略来自本地IP发送的消息";
+			this.toolTip1.SetToolTip(this.chkFilterLocalMsg, "默认情况下，飞鸽传书会接收来自自己的消息，因此你能在列表中看到自己。\r\n如果启用此选项，将会忽略这些消息。\r\n\r\n此选项需要安装“本地回发消息过滤插件”。");
+			this.chkFilterLocalMsg.UseVisualStyleBackColor = true;
 			// 
 			// NetworkConfigPanel
 			// 
@@ -255,8 +260,10 @@
 			this.Controls.Add(this.horizontalLine1);
 			this.Name = "NetworkConfigPanel";
 			this.Load += new System.EventHandler(this.NetworkConfigPanel_Load);
+			((System.ComponentModel.ISupportInitialize)(this.nudPort)).EndInit();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.tcpTimeout)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -264,8 +271,8 @@
 
 		#endregion
 
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine1;
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine2;
+		private HorizontalLine horizontalLine1;
+		private HorizontalLine horizontalLine2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;

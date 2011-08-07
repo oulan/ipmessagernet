@@ -156,7 +156,7 @@ namespace IPMessagerNet.UI.Dialogs
 				IPAddress ip = null;
 				if (!IPAddress.TryParse(ipstr, out ip))
 				{
-					Infomation("无法识别的IP地址，请确认您输入了正确的IP地址。");
+					Information("无法识别的IP地址，请确认您输入了正确的IP地址。");
 					return;
 				}
 			}

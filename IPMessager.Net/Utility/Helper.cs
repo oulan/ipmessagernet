@@ -21,19 +21,5 @@ namespace IPMessagerNet.Utility
 			if (string.IsNullOrEmpty(str)) return string.Empty;
 			return jsConventor.Replace(str, (s) => { return string.Concat("\\", s.Value); }).Replace("\r", "\\r").Replace("\n", "\\n");
 		}
-
-		/// <summary>
-		/// 将大小转换为文字表达形式
-		/// </summary>
-		/// <param name="size"></param>
-		/// <returns></returns>
-		public static string ToSizeDescription(this ulong size)
-		{
-			double d = 1024 * 0.9;
-			if (size < d) return String.Format("{0} 字节", size);
-			else if (size < 0x400 * d) return String.Format("{0:#0.00} KB", size / 1024.0);
-			else if (size < 0x100000 * d) return String.Format("{0:#0.00} MB", size / 1048576.0);
-			else return string.Format("{0:#0.00} GB", size / (0x40000000 * 1.0));
-		}
 	}
 }

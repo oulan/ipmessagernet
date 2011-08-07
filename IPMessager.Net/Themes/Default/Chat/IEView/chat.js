@@ -1,4 +1,7 @@
-﻿//初始化显示
+﻿/**
+ * 初始化显示信息
+ * 在这个函数中将会与浏览器环境进行交互取得用户资料
+ */
 function initInfo() {
 	var info = eval("(" + window.external.GetHostInfo() + ")");
 	$("#head h5").html("与 " + info.username + " 对话中 (" + info.ip + "/" + info.group + ")");
@@ -11,23 +14,34 @@ function initInfo() {
 }
 $(initInfo);
 
-//添加提示信息
+/**
+ * 添加提示信息
+ * @param {Object} 要显示信息内容
+ */
 function applyTipInfo(msg) {
 	var q = $("<div class='tip'>" + msg + "</div>");
 	$("#chat").append(q);
 	autoScroll();
 }
 
-//自动滚动到结尾
+/**
+ * 自动将当前浏览器窗口滚动到结尾
+ */
 function autoScroll() {
 	window.scroll(0, document.documentElement.scrollHeight);
 }
 
-//根据ID定位
+/**
+ * 根据指定ID的元素进行定位
+ * @param {Object} 要定位的元素ID
+ */
 function hashLocate(id) {
 	location.hash = "#" + id;
 }
 
+/**
+ * 清空整个信息区域
+ */
 function clearChatHistory() {
 	$("#chat").empty();
 }

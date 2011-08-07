@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using FSLib.IPMessager.Entity;
+using IPMessagerNet._Embed;
 
 
 namespace IPMessagerNet.UI.Controls
@@ -139,9 +140,9 @@ namespace IPMessagerNet.UI.Controls
 		{
 			//--------------------工具栏--------------------
 			int tmp;
-			toolbarImageArray = FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemeFilePath("Toolbar", "HostViewToolBar"), 16, 16, out tmp).ToArray();
+			toolbarImageArray = ImageHelper.SplitImage(Core.ProfileManager.GetThemeFilePath("Toolbar", "HostViewToolBar"), 16, 16, out tmp).ToArray();
 			tmp = 0;
-			FSLib.Windows.Controls.ControlHelper.FillMenuButtonImage(tbHost, toolbarImageArray, ref tmp);
+			ControlHelper.FillMenuButtonImage(tbHost, toolbarImageArray, ref tmp);
 
 			//离开菜单
 			BindAbsenceMessageMenu();

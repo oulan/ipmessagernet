@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Controls.Config
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Controls.Config
 {
 	partial class StateConfigPanel
 	{
@@ -29,8 +31,8 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
-			this.horizontalLine2 = new FSLib.Windows.Controls.HorizontalLine();
+			this.horizontalLine1 = new HorizontalLine();
+			this.horizontalLine2 = new HorizontalLine();
 			this.txtAbsenceSuffix = new IPMessagerNet.UI.EditorControls.TextBoxEditor();
 			this.label1 = new System.Windows.Forms.Label();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -191,8 +193,8 @@
 
 		#endregion
 
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine1;
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine2;
+		private HorizontalLine horizontalLine1;
+		private HorizontalLine horizontalLine2;
 		private IPMessagerNet.UI.EditorControls.TextBoxEditor txtAbsenceSuffix;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Label label1;

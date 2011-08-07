@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "主机列表设置"; }
+			get { return "主机列表"; }
 		}
 
 		ConfigPanelBase _userControl;

@@ -45,9 +45,8 @@ namespace IPMessagerNet.UI.Forms
 			//加载插件的设置页面
 			foreach (var p in Env.ClientConfig.IPMClientConfig.Services)
 			{
-				if (!p.Enabled || p.ServiceProvider == null || !p.ServiceProvider.SupportsConfig) continue;
-				API.IConfigMenuItem cmi = p.ServiceProvider.ConfigUI as IConfigMenuItem;
-				if (cmi != null) lstMenu.Items.Add(cmi);
+				if (!p.Enabled || p.ServiceProvider == null || !p.ServiceProvider.SupportControlPanel) continue;
+				lstMenu.Items.Add(new Controls.Config.PluginConfigMenuItem(p));
 			}
 
 			lstMenu.Items.Add(new Controls.Config.PluginsConfigMenuItem());
@@ -72,7 +71,8 @@ namespace IPMessagerNet.UI.Forms
 				panConfig.Controls.Add(uc);
 			};
 
-			this.FormClosing += (s, e) => {
+			this.FormClosing += (s, e) =>
+			{
 				NotifyChanged();
 			};
 		}

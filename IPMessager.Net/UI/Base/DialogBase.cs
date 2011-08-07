@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using IPMessagerNet.Core;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Base
 {
@@ -20,7 +21,7 @@ namespace IPMessagerNet.UI.Base
 
 				if (Environment.OSVersion.Version.Major < 5)
 				{
-					FSLib.Windows.Components.Effect.FadeEffectComponent fec = new FSLib.Windows.Components.Effect.FadeEffectComponent()
+					FadeEffectComponent fec = new FadeEffectComponent()
 					{
 						ParentForm = this
 					};

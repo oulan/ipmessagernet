@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Controls.Config
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Controls.Config
 {
 	partial class HostConfigPanel
 	{
@@ -29,12 +31,12 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
+			this.horizontalLine1 = new HorizontalLine();
 			this.lvUserGroup = new System.Windows.Forms.ListView();
 			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
 			this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-			this.horizontalLine2 = new FSLib.Windows.Controls.HorizontalLine();
+			this.horizontalLine2 = new HorizontalLine();
 			this.lvMemo = new System.Windows.Forms.ListView();
 			this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
 			this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
@@ -273,9 +275,9 @@
 
 		#endregion
 
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine1;
+		private HorizontalLine horizontalLine1;
 		private System.Windows.Forms.ListView lvUserGroup;
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine2;
+		private HorizontalLine horizontalLine2;
 		private System.Windows.Forms.ListView lvMemo;
 		private IPMessagerNet.UI.EditorControls.ImageLoader imageLoader1;
 		private System.Windows.Forms.Label label1;

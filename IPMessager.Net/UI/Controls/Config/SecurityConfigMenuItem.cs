@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "安全设置"; }
+			get { return "消息安全"; }
 		}
 
 		ConfigPanelBase _userControl;

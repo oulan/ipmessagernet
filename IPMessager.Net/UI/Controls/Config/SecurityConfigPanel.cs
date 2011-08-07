@@ -62,7 +62,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			if (box.ShowDialog() == DialogResult.OK)
 			{
 				string v = box.InputedText;
-				if (Env.IPMClient.Config.BanedHost.Contains(v)) Infomation("看起来输入的IP已经被屏蔽过了.....");
+				if (Env.IPMClient.Config.BanedHost.Contains(v)) Information("看起来输入的IP已经被屏蔽过了.....");
 				else
 				{
 					Env.IPMClient.Config.BanedHost.Add(v);
@@ -159,11 +159,11 @@ namespace IPMessagerNet.UI.Controls.Config
 							iflp.Enabled = ckb.Checked;
 							if (ckb.Checked)
 							{
-								if (!Env.StartupServiceProvider(iflp)) Infomation("无法启动插件，可能需要重新启动设置才能生效。");
+								if (!Env.StartupServiceProvider(iflp)) Information("无法启动插件，可能需要重新启动设置才能生效。");
 							}
 							else
 							{
-								if (!Env.ShutdownServiceProvider(iflp)) Infomation("无法停止插件，可能需要重新启动设置才能生效。");
+								if (!Env.ShutdownServiceProvider(iflp)) Information("无法停止插件，可能需要重新启动设置才能生效。");
 							}
 
 						};

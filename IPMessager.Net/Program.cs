@@ -23,6 +23,7 @@ namespace IPMessagerNet
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
+
 			if (cmd.Length > 0)
 			{
 				if (cmd[0] == "/wait" && cmd.Length >= 2)
@@ -37,7 +38,7 @@ namespace IPMessagerNet
 			}
 
 			//捕捉异常
-			FSLib.Windows.Dialogs.ThreadException.SettingUpForm();
+			//FSLib.Windows.Dialogs.ThreadException.SettingUpForm();
 
 			//加载配置
 			Env.ClientConfig = Core.ProfileManager.LoadConfig<Config.ClientConfig>();
@@ -49,6 +50,7 @@ namespace IPMessagerNet
 			Env.ClientConfig.IPMClientConfig.VersionInfo = "飞鸽传书.Net " + Application.ProductVersion + "，BY 木鱼";
 
 			//初始化IPM客户端和声音
+			var errorForm = new UI.Dialogs.Notify.InitializeError();	//确保在初始化飞鸽客户端之前初始化UI线程，否则飞鸽的客户端无法处理跨线程请求
 			Env.Init();
 
 			if (Env.IPMClient.IsInitialized)
@@ -58,7 +60,7 @@ namespace IPMessagerNet
 			else
 			{
 				//失败
-				Application.Run(new UI.Dialogs.Notify.InitializeError());
+				Application.Run(errorForm);
 			}
 		}
 
@@ -103,7 +105,7 @@ namespace IPMessagerNet
 					BindedIP = IPAddress.Any,
 					VersionInfo = "飞鸽传书.Net " + Application.ProductVersion + "，BY 木鱼",
 					AbsenceSuffix = " [离开]",
-					Services = ServiceManager.GetServices(),
+					Services = ServiceManager.GetServices(GetAddinPath()),
 					EnableBPContinue = true,
 					TaskKeepTime = 600,
 					TasksMultiReceiveCount = 1
@@ -143,6 +145,15 @@ namespace IPMessagerNet
 					Share_CalculateFolderSize = true
 				}
 			};
+		}
+
+		/// <summary>
+		/// 获得插件的目录
+		/// </summary>
+		/// <returns></returns>
+		internal static string[] GetAddinPath()
+		{
+			return new string[] { "addins" };
 		}
 	}
 }

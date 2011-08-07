@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Forms
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Forms
 {
 	partial class SysConfig
 	{
@@ -29,7 +31,7 @@
 		private void InitializeComponent()
 		{
 			this.lstMenu = new IPMessagerNet.UI.Controls.Config.ExListBox();
-			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
+			this.horizontalLine1 = new HorizontalLine();
 			this.panConfig = new System.Windows.Forms.Panel();
 			this.btnOk = new System.Windows.Forms.Button();
 			this.btnAbout = new System.Windows.Forms.Button();
@@ -128,7 +130,7 @@
 		#endregion
 
 		private Controls.Config.ExListBox lstMenu;
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine1;
+		private HorizontalLine horizontalLine1;
 		private System.Windows.Forms.Panel panConfig;
 		private System.Windows.Forms.Button btnOk;
 		private System.Windows.Forms.Button btnAbout;

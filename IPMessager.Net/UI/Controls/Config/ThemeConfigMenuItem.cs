@@ -30,7 +30,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "界面主题设置"; }
+			get { return "界面主题"; }
 		}
 
 		ConfigPanelBase _userControl;

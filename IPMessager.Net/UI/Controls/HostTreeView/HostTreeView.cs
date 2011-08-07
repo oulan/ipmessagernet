@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using FSLib.IPMessager;
 using FSLib.IPMessager.Entity;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Controls.HostTreeView
 {
@@ -141,14 +142,14 @@ namespace IPMessagerNet.UI.Controls.HostTreeView
 				ImageSize = new System.Drawing.Size(16, 16),
 				ColorDepth = ColorDepth.Depth32Bit
 			};
-			imglist.Images.AddRange(FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemePicturePath<HostTreeView>(), 16, 16, out rowCount).ToArray());
+			imglist.Images.AddRange(ImageHelper.SplitImage(Core.ProfileManager.GetThemePicturePath<HostTreeView>(), 16, 16, out rowCount).ToArray());
 
 			this.ImageList = imglist;
 
 			//处理菜单图标
-			List<Image> tb = FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemePicture("Toolbar", "HostTreeViewTool"), 16, 16, out rowCount);
+			List<Image> tb = ImageHelper.SplitImage(Core.ProfileManager.GetThemePicture("Toolbar", "HostTreeViewTool"), 16, 16, out rowCount);
 			int startIndex = 0;
-			FSLib.Windows.Controls.ControlHelper.FillMenuButtonImage(this.ContextMenuStrip, tb.ToArray(), ref startIndex);
+			ControlHelper.FillMenuButtonImage(this.ContextMenuStrip, tb.ToArray(), ref startIndex);
 
 			//初始化状态
 			isBlockHostDisabled = !(this.mBan.Enabled = Env.IPMClient.IsInnerServiceEnabled(FSLib.IPMessager.Services.InnerService.BlackListBlocker));

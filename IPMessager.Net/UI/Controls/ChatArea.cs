@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using IPMessagerNet.API;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Controls
 {
@@ -67,7 +68,7 @@ namespace IPMessagerNet.UI.Controls
 			//初始化图像
 			int index = 0;
 			int temp;
-			FSLib.Windows.Controls.ControlHelper.FillMenuButtonImage(toolStrip1, FSLib.Drawing.Image.ImageHelper.SplitImage(Core.ProfileManager.GetThemePicture("Toolbar", "ChatArea"), 16, 16, out temp).ToArray(), ref index);
+			ControlHelper.FillMenuButtonImage(toolStrip1, ImageHelper.SplitImage(Core.ProfileManager.GetThemePicture("Toolbar", "ChatArea"), 16, 16, out temp).ToArray(), ref index);
 
 			//事件
 			this.tChat.Click += (s, e) => { Forms.FrameContainer.ContainerForm.HostTreeView.OpenChatPage(); };

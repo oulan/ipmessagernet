@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "常规设置"; }
+			get { return "常规"; }
 		}
 
 		ConfigPanelBase _userControl;

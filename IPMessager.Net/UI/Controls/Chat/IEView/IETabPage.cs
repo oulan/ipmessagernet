@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FSLib.IPMessager.Entity;
+using IPMessagerNet._Embed;
 using Alias = FSLib.IPMessager.Entity;
-using IPMessagerNet.Utility;
-using FSLib.Windows.Controls;
 using FSLib.IPMessager.Core;
 using IPMessagerNet.API;
+using IPMessagerNet.Utility;
 
 
 namespace IPMessagerNet.UI.Controls.Chat.IEView

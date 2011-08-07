@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using FSLib.IPMessager;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Dialogs.Notify
 {
@@ -26,7 +27,7 @@ namespace IPMessagerNet.UI.Dialogs.Notify
 			this.FormClosing += (s, e) => { e.Cancel = !canClose; };
 			this.silder.SlideEnd += (s, e) =>
 			{
-				if (e.Direction == FSLib.Windows.Components.Effect.SlideComponent.SlideDirection.SlideIn) BuildExtendMessage();
+				if (e.Direction == SlideComponent.SlideDirection.SlideIn) BuildExtendMessage();
 			};
 		}
 
