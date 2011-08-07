@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "通知和日志设置"; }
+			get { return "通知和日志"; }
 		}
 
 		ConfigPanelBase _userControl;

@@ -41,7 +41,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			if (box.ShowDialog() == DialogResult.OK)
 			{
 				string v = box.InputedText;
-				if (Env.ClientConfig.AbsenceMessage.Contains(v)) Infomation("看起来输入重复了.....");
+				if (Env.ClientConfig.AbsenceMessage.Contains(v)) Information("看起来输入重复了.....");
 				else
 				{
 					Env.ClientConfig.AbsenceMessage.Add(v);

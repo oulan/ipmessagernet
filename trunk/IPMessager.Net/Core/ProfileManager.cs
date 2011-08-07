@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.Core
 {
@@ -183,7 +184,7 @@ namespace IPMessagerNet.Core
 		public static System.Drawing.Image GetThemePicture(string catName, string fileName)
 		{
 			string path = GetThemeFilePath(catName, fileName);
-			if (System.IO.File.Exists(path)) return FSLib.Drawing.Image.ImageHelper.LoadFromFile(path);
+			if (System.IO.File.Exists(path)) return ImageHelper.LoadFromFile(path);
 			else return null;
 		}
 
@@ -194,7 +195,7 @@ namespace IPMessagerNet.Core
 		public static System.Drawing.Image GetThemePicture(this object obj, string cata)
 		{
 			string path = GetThemeFilePath(cata, obj.GetType().Name);
-			if (System.IO.File.Exists(path)) return FSLib.Drawing.Image.ImageHelper.LoadFromFile(path);
+			if (System.IO.File.Exists(path)) return ImageHelper.LoadFromFile(path);
 			else return null;
 		}
 
@@ -205,7 +206,7 @@ namespace IPMessagerNet.Core
 		public static System.Drawing.Icon GetThemeIcon(string catName, string fileName)
 		{
 			string path = GetThemeIconPath(catName, fileName);
-			if (System.IO.File.Exists(path)) return FSLib.Drawing.Icon.IconHelper.LoadIcon(path);
+			if (System.IO.File.Exists(path)) return IconHelper.LoadIcon(path);
 			else return null;
 		}
 
@@ -216,7 +217,7 @@ namespace IPMessagerNet.Core
 		public static System.Drawing.Icon GetThemeIcon<T>()
 		{
 			string path = GetThemeIconPath<T>();
-			if (System.IO.File.Exists(path)) return FSLib.Drawing.Icon.IconHelper.LoadIcon(path);
+			if (System.IO.File.Exists(path)) return IconHelper.LoadIcon(path);
 			else return null;
 		}
 

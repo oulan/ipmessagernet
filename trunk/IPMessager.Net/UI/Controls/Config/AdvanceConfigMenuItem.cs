@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "高级设置"; }
+			get { return "高级"; }
 		}
 
 		ConfigPanelBase _userControl;

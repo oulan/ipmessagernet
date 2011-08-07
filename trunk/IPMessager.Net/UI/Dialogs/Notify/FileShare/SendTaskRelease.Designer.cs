@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Dialogs.Notify.FileShare
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Dialogs.Notify.FileShare
 {
 	partial class SendTaskRelease
 	{
@@ -30,7 +32,7 @@
 		{
 			this.lblDesc = new System.Windows.Forms.Label();
 			this.fileList = new System.Windows.Forms.ListBox();
-			this.slideComponent1 = new FSLib.Windows.Components.Effect.SlideComponent();
+			this.slideComponent1 = new SlideComponent();
 			this.pbTip = new System.Windows.Forms.PictureBox();
 			((System.ComponentModel.ISupportInitialize)(this.pbTip)).BeginInit();
 			this.SuspendLayout();
@@ -56,7 +58,7 @@
 			// 
 			this.slideComponent1.AlwaysSetLocation = false;
 			this.slideComponent1.AttachedForm = this;
-			this.slideComponent1.DirectX = FSLib.Windows.Components.Effect.SlideComponent.FlyXDirection.None;
+			this.slideComponent1.DirectX = SlideComponent.FlyXDirection.None;
 			this.slideComponent1.MoveSpeedX = 20;
 			this.slideComponent1.MoveSpeedY = 18;
 			// 
@@ -96,6 +98,6 @@
 		private System.Windows.Forms.Label lblDesc;
 		private System.Windows.Forms.PictureBox pbTip;
 		private System.Windows.Forms.ListBox fileList;
-		private FSLib.Windows.Components.Effect.SlideComponent slideComponent1;
+		private SlideComponent slideComponent1;
 	}
 }

@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "自动更新设置"; }
+			get { return "自动更新"; }
 		}
 
 		ConfigPanelBase _userControl;

@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Dialogs.Notify
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Dialogs.Notify
 {
 	partial class FetchFolderInfo
 	{
@@ -30,7 +32,7 @@
 		{
 			this.progressBar1 = new System.Windows.Forms.ProgressBar();
 			this.statusText = new System.Windows.Forms.Label();
-			this.silder = new FSLib.Windows.Components.Effect.SlideComponent();
+			this.silder = new SlideComponent();
 			this.SuspendLayout();
 			// 
 			// progressBar1
@@ -54,7 +56,7 @@
 			// 
 			this.silder.AlwaysSetLocation = false;
 			this.silder.AttachedForm = this;
-			this.silder.DirectX = FSLib.Windows.Components.Effect.SlideComponent.FlyXDirection.None;
+			this.silder.DirectX = SlideComponent.FlyXDirection.None;
 			this.silder.MoveSpeedX = 0;
 			this.silder.MoveSpeedY = 7;
 			// 
@@ -77,7 +79,7 @@
 
 		#endregion
 
-		private FSLib.Windows.Components.Effect.SlideComponent silder;
+		private SlideComponent silder;
 		private System.Windows.Forms.ProgressBar progressBar1;
 		private System.Windows.Forms.Label statusText;
 	}

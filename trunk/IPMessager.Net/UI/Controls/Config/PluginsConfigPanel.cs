@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using FSLib.IPMessager.Services;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Controls.Config
 {
@@ -161,7 +162,7 @@ namespace IPMessagerNet.UI.Controls.Config
 			};
 			btnRescan.Click += (s, e) =>
 			{
-				FSLib.Windows.Dialogs.WaitingDialog wd = new FSLib.Windows.Dialogs.WaitingDialog() { ShowLog = true };
+				WaitingDialog wd = new WaitingDialog() { ShowLog = true };
 				wd.ThreadWorker = p => { RescanServices(p); };
 				wd.ShowDialog();
 			};
@@ -176,12 +177,12 @@ namespace IPMessagerNet.UI.Controls.Config
 			};
 		}
 
-		void RescanServices(FSLib.Windows.Utils.ProgressIdentifier act)
+		void RescanServices(ProgressIdentifier act)
 		{
 			act.StateMessage = "正在从程序集中扫描插件........";
 
 			string[] installedService = Array.ConvertAll<ServiceInfo, string>(Env.ClientConfig.IPMClientConfig.Services.ToArray(), s => s.TypeName.ToLower());
-			ServiceList newservice = ServiceManager.GetServices();
+			ServiceList newservice = ServiceManager.GetServices(Program.GetAddinPath());
 
 
 			int count = 0;
@@ -202,7 +203,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 				if (!ns.Enabled)
 				{
-					act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Remove, "插件 " + ns.ServiceDescription.Name + " 默认为禁用状态");
+					act.NotifyStateObjChanged("插件 " + ns.ServiceDescription.Name + " 默认为禁用状态");
 				}
 
 				count++;
@@ -218,17 +219,17 @@ namespace IPMessagerNet.UI.Controls.Config
 					if (!ns.LoadService())
 					{
 						failed++;
-						act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Remove, "插件 " + ns.ServiceDescription.Name + " 未能成功加载，可能需要重新启动飞鸽传书");
+						act.NotifyStateObjChanged("插件 " + ns.ServiceDescription.Name + " 未能成功加载，可能需要重新启动飞鸽传书");
 					}
 					else
 					{
 						succeed++;
-						act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Success1, "插件 " + ns.ServiceDescription.Name + " 已经成功加载");
+						act.NotifyStateObjChanged("插件 " + ns.ServiceDescription.Name + " 已经成功加载");
 					}
 				}
 				else
 				{
-					act.NotifyStateObjChanged(FSLib.Windows.Controls.LogView.RowType.Remove, "插件 " + ns.ServiceDescription.Name + " 未能成功加载，请联系插件作者");
+					act.NotifyStateObjChanged("插件 " + ns.ServiceDescription.Name + " 未能成功加载，请联系插件作者");
 					failed++;
 				}
 				LoadPluginItem(ns);

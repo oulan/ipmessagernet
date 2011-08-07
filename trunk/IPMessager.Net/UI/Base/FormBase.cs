@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Base
 {
-	public class FormBase : FSLib.Windows.Forms.FunctionalForm
+	public class FormBase : FunctionalForm
 	{
 
 		public static ImageList ButtonImages { get; set; }
@@ -47,7 +48,7 @@ namespace IPMessagerNet.UI.Base
 						ImageSize = new System.Drawing.Size(16, 16)
 					};
 					int temp;
-					ButtonImages.Images.AddRange(FSLib.Drawing.Image.ImageHelper.SplitImage(img, 16, 16, out temp).ToArray());
+					ButtonImages.Images.AddRange(ImageHelper.SplitImage(img, 16, 16, out temp).ToArray());
 				}
 			}
 		}

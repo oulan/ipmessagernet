@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.API
 {
-	public class ConfigPanelBase : FSLib.Windows.Forms.FunctionalUserControl
+	public class ConfigPanelBase : FunctionalUserControl
 	{
 		/// <summary>
 		/// 创建 ConfigPanelBase class 的新实例

@@ -45,7 +45,6 @@ namespace IPMessagerNet.UI.Forms
 			Env.MainForm = this;
 
 			InitializeComponent();
-
 			if (Env.ClientConfig != null)
 			{
 				InitFrameContainer();
@@ -53,7 +52,7 @@ namespace IPMessagerNet.UI.Forms
 
 				InitializeInterface();
 				InitChatAreaEvents();
-			}
+			};
 		}
 
 
@@ -105,9 +104,10 @@ namespace IPMessagerNet.UI.Forms
 
 			//绑定属性，以便于记录状态
 			this.LocationChanged += (s, e) => { if (this.WindowState != FormWindowState.Minimized)cfg.Location = this.Location; };
-			this.SizeChanged += (s, e) => {
+			this.SizeChanged += (s, e) =>
+			{
 				cfg.WindowState = (int)this.WindowState;
-				if (this.WindowState == FormWindowState.Normal)cfg.WindowSize = this.Size;
+				if (this.WindowState == FormWindowState.Normal) cfg.WindowSize = this.Size;
 			};
 			this.mainContainer.SplitterMoved += (s, e) => { cfg.HostListWidth = this.mainContainer.SplitterDistance; };
 			//this.bodyContainer.SplitterMoved += (s, e) => { cfg.ChatAreaWidth = this.bodyContainer.SplitterDistance; };

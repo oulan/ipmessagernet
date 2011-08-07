@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "测试功能设置"; }
+			get { return "测试功能"; }
 		}
 
 		ConfigPanelBase _userControl;

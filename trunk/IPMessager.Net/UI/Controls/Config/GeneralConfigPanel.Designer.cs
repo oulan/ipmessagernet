@@ -1,4 +1,6 @@
-﻿namespace IPMessagerNet.UI.Controls.Config
+﻿using IPMessagerNet._Embed;
+
+namespace IPMessagerNet.UI.Controls.Config
 {
 	partial class GeneralConfigPanel
 	{
@@ -28,7 +30,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.horizontalLine1 = new FSLib.Windows.Controls.HorizontalLine();
+			this.horizontalLine1 = new HorizontalLine();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.txtNickName = new IPMessagerNet.UI.EditorControls.TextBoxEditor();
@@ -118,7 +120,7 @@
 
 		#endregion
 
-		private FSLib.Windows.Controls.HorizontalLine horizontalLine1;
+		private HorizontalLine horizontalLine1;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private IPMessagerNet.UI.EditorControls.TextBoxEditor txtNickName;

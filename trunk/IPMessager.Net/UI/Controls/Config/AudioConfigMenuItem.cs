@@ -30,7 +30,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "声音设置"; }
+			get { return "声音"; }
 		}
 
 		ConfigPanelBase _userControl;

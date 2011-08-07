@@ -50,7 +50,7 @@ namespace IPMessagerNet.UI.Controls.Config
 				string v = txtDialIp.Text;
 				IPAddress ip = null;
 
-				if (string.IsNullOrEmpty(v) || !IPAddress.TryParse(v, out ip)) { Infomation("请输入正确的IP地址"); return; }
+				if (string.IsNullOrEmpty(v) || !IPAddress.TryParse(v, out ip)) { Information("请输入正确的IP地址"); return; }
 				if (Env.IPMClient.Config.KeepedHostList.Contains(v)) return;
 
 				foreach (var _ip in Env.IPMClient.LocalAddresses)

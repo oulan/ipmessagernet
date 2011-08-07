@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "文件传输设置"; }
+			get { return "文件传输"; }
 		}
 
 		ConfigPanelBase _userControl;

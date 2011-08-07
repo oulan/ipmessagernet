@@ -77,10 +77,23 @@ namespace IPMessagerNet.UI.Controls.Chat
 			{
 				OpenChatTab(e.Host, false, f => f.FileOperationError(e));
 			};
-			Env.IPMClient.FileTaskManager.FileReceiveTaskReDroped += (s, e) => { 
+			Env.IPMClient.FileTaskManager.FileReceiveTaskReDroped += (s, e) =>
+			{
 				AddReceiveTask(e.TaskInfo.RemoteHost, e.TaskInfo);
 				e.IsHandled = true;
 			};
+			Env.IPMClient.FileTaskManager.FileReceived += FileTaskManager_FileReceived;
+		}
+
+		/// <summary>
+		/// 收到了文件
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void FileTaskManager_FileReceived(object sender, FileReceivedEventArgs e)
+		{
+			e.File.TaskList.ForEach(s => s.FullPath = Env.ClientConfig.FunctionConfig.Share_LastSelectedPath);
+			AddReceiveTask(e.Host, e.File);
 		}
 
 
@@ -121,19 +134,6 @@ namespace IPMessagerNet.UI.Controls.Chat
 		/// <param name="msg"></param>
 		void TextMessageReceived(Host host, FSLib.IPMessager.Entity.Message msg)
 		{
-			//文件附加？
-			if (msg.IsFileAttached)
-			{
-				FileTaskInfo task = FSLib.IPMessager.Entity.FileTaskItemHelper.DecompileTaskInfo(host, msg);
-				task.TaskList.ForEach(s => s.FullPath = Env.ClientConfig.FunctionConfig.Share_LastSelectedPath);
-				if (task != null)
-				{
-					AddReceiveTask(host, task);
-				}
-			}
-
-			if (string.IsNullOrEmpty(msg.NormalMsg.Trim())) return;
-
 			IChatService cs = this.OpenChatTab(host);
 			cs.DropMessage(msg);
 			if (Env.ClientConfig.ChatConfig.AutoChangeCurrentTabToNew)

@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using IPMessagerNet._Embed;
 
 namespace IPMessagerNet.UI.Dialogs.Notify
 {
-	partial class AboutIPM : FSLib.Windows.Forms.PerPixelAlphaForm
+	partial class AboutIPM : PerPixelAlphaForm
 	{
 		public AboutIPM()
 		{

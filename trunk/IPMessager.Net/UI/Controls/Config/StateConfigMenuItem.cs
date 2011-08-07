@@ -31,7 +31,7 @@ namespace IPMessagerNet.UI.Controls.Config
 
 		public string Name
 		{
-			get { return "状态设置"; }
+			get { return "在线状态"; }
 		}
 
 		ConfigPanelBase _userControl;
